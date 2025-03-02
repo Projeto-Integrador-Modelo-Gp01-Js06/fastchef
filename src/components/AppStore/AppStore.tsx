@@ -1,4 +1,3 @@
-import React from "react";
 import AppStoreImg from "../../assets/app_store.png";
 import PlayStoreImg from "../../assets/play_store.png";
 import Gif from "../../assets/mobile_bike.gif";
@@ -15,7 +14,7 @@ const AppStore = () => {
               className="space-y-6 max-w-xl mx-auto"
             >
               <h1 className="text-2xl text-center sm:text-left sm:text-4xl font-semibold text-gray-700 dark:text-gray-400">
-                Foodly is available for Android and IOS
+                FastChef também está disponivel para Android e IOS
               </h1>
               <div className="flex flex-wrap justify-center sm:justify-start items-center">
                 <a href="#">

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import darkPng from "../../assets/website/dark-mode-button.png";
 import lightPng from "../../assets/website/light-mode-button.png";
@@ -16,7 +17,7 @@ const DarkMode = () => {
       element.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
-  }, [theme]);
+  }, [element.classList, theme]);
   return (
     <>
       <div className="relative ">

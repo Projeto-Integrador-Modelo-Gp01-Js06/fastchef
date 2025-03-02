@@ -1,12 +1,11 @@
 import React from "react";
-import Hero from "./components/Hero/Hero";
-import Navbar from "./components/Navbar/Navbar";
-import Services from "./components/Services/Services.jsx";
-import Banner from "./components/Banner/Banner.jsx";
-import AppStore from "./components/AppStore/AppStore.jsx";
-import CoverBanner from "./components/CoverBanner/CoverBanner.jsx";
-import Testimonial from "./components/Testimonial/Testimonial.jsx";
-import Footer from "./components/Footer/Footer.jsx";
+import Hero from "./components/pages/Home..js";
+import Navbar from "./components/Navbar/Navbar.js";
+import Services from "./components/Services/Services.js";
+import Banner from "./components/Banner/Banner.js";
+import AppStore from "./components/AppStore/AppStore.js";
+import Testimonial from "./components/Avaliacoes/Avaliacoes.js";
+import Footer from "./components/Footer/Footer.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

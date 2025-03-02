@@ -12,6 +12,7 @@ export default {
         secondary: "#ff9c01",
         dark: "#1e1e1e",
         light: "#f5f5f5",
+        verde:'#bcd1a4',
       },
       container: {
         center: true,
