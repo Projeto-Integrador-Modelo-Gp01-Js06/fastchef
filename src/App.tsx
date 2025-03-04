@@ -6,7 +6,7 @@ import Cadastro from "./components/pages/Cadastro";
 import Cardapio from "./components/pages/Cardapio";
 import Carrinho from "./components/Cart/Cart";
 import Services from "./components/Services/Services";
-import Sobre from "../src/components/Sobre/sobre";
+import Sobre from "../src/components/Sobre/Sobre";
 import AppStore from "./components/AppStore/AppStore";
 import Testimonial from "./components/Avaliacoes/Avaliacoes";
 import Footer from "./components/Footer/Footer";
