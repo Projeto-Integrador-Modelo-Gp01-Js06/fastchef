@@ -28,7 +28,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             <div>
               <a href="#" className="font-bold text-1xl sm:text-4xl flex gap-0 items-center bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-verde">
-                <img src="src\assets\FastChef.png" alt="Logo" className="w-[50px]" />
+                <img src="https://i.ibb.co/QFpjykTY/FastChef.png" alt="Logo" className="w-[50px]" />
                 FastChef
               </a>
             </div>
