@@ -62,27 +62,27 @@ const Footer = () => {
             <div className="">
               <div className="py-8 px-4 ">
                 <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-                  Links
+                  Apoiar
                 </h1>
                 <ul className="flex flex-col gap-3">
-                  <li className="cursor-pointer">Inicio</li>
-                  <li className="cursor-pointer">Sobre</li>
-                  <li className="cursor-pointer">Serviços</li>
-                  <li className="cursor-pointer">Login</li>
+                  <li className="cursor-pointer">Perguntas Frequentes</li>
+                  <li className="cursor-pointer">Envios e Devoluções</li>
+                  <li className="cursor-pointer">Contate-nos</li>
+                  <li className="cursor-pointer">Nossos Parceiros</li>
                 </ul>
               </div>
             </div>
             <div className="">
               <div className="py-8 px-4 ">
                 <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-                  Links
+                  Informações
                 </h1>
                 {/* <ul className="list-disc list-inside"> */}
                 <ul className="flex flex-col gap-3">
-                <li className="cursor-pointer">Inicio</li>
-                  <li className="cursor-pointer">Sobre</li>
-                  <li className="cursor-pointer">Serviços</li>
-                  <li className="cursor-pointer">Login</li>
+                <li className="cursor-pointer">Datas</li>
+                  <li className="cursor-pointer">Festas</li>
+                  <li className="cursor-pointer">Aniversários</li>
+                  <li className="cursor-pointer">Menu</li>
                 </ul>
               </div>
             </div>
