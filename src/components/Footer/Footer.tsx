@@ -33,15 +33,15 @@ const Footer = () => {
               <p>+55 11-40028933</p>
             </div>
             {/* Social Handle */}
-            <div className="flex items-center gap-3 mt-6">
+            <div className="flex items-center gap-3 mt-6 ">
               <a href="#">
-                <FaInstagram className="text-3xl" />
+                <FaInstagram className="text-3xl hover:scale-105 duration-200" />
               </a>
               <a href="#">
-                <FaFacebook className="text-3xl" />
+                <FaFacebook className="text-3xl hover:scale-105 duration-200" />
               </a>
               <a href="#">
-                <FaLinkedin className="text-3xl" />
+                <FaLinkedin className="text-3xl hover:scale-105 duration-200" />
               </a>
             </div>
           </div>
