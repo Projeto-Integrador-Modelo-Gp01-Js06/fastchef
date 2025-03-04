@@ -63,7 +63,7 @@ const Home = () => {
             <div className="flex flex-wrap gap-4 justify-center sm:justify-start ml-80">
               <div>
                 <button
-                  onClick={() => navigate("/cadastro")} // Redireciona para a página de Cadastro
+                  onClick={() => navigate("/login")}
                   className="bg-gradient-to-r from-red-400 to-red-300 hover:scale-105 duration-200 text-black py-2 px-4 rounded-full mt-2 font-bold"
                 >
                   Peça agora

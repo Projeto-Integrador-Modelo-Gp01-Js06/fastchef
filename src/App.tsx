@@ -13,6 +13,7 @@ import Footer from "./components/Footer/Footer";
 import { ProvedorCarrinho } from "./components/contexts/CartContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Login from "./components/pages/Login"; // ✅ Importe a página de login
 
 const App = () => {
   React.useEffect(() => {
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/cardapio" element={<Cardapio />} />
             <Route path="/carrinho" element={<Carrinho />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/login" element={<Login />} /> {/* ✅ Adicionando a rota de login */}
           </Routes>
           <Banner />
           <AppStore />
