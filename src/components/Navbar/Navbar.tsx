@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import DarkMode from "./DarkMode";
+import { Link } from "react-router-dom";  // Importe o Link
 
 const Menu = [
   {
@@ -11,12 +12,12 @@ const Menu = [
   {
     id: 2,
     name: "Serviços",
-    link: "/#services",
+    link: "/categories",
   },
   {
     id: 3,
     name: "Sobre",
-    link: "/sobre",
+    link: "/Sobre",  
   },
 ];
 
@@ -36,12 +37,12 @@ const Navbar = () => {
               <ul className="hidden sm:flex items-center gap-2">
                 {Menu.map((menu) => (
                   <li key={menu.id}>
-                    <a
-                      href={menu.link}
+                    <Link
+                      to={menu.link}  // Usando Link para navegação
                       className="inline-block py-4 px-4 hover:text-yellow-500"
                     >
                       {menu.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -49,7 +50,6 @@ const Navbar = () => {
                 Comprar
                 <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
               </button>
-              {/* O DarkMode vai agora aparecer após o botão de Comprar */}
               <div>
                 <DarkMode />
               </div>

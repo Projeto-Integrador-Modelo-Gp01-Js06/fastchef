@@ -53,11 +53,6 @@ const Banner = () => {
                     <GiFoodTruck className="text-4xl h-20 w-20 shadow-sm p-5 rounded-full bg-green-100 dark:bg-green-400" />
                   </div>
                 </div>
-                <div>
-                  <button className="bg-gradient-to-r from-red-400 to-red-300 text-white py-2 px-4 rounded-full shadow-xl hover:shadow-md hover:scale-105 duration-200">
-                    Compre agora
-                  </button>
-                </div>
               </div>
             </div>
           </div>

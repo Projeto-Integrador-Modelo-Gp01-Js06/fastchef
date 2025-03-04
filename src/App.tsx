@@ -6,14 +6,16 @@ import Cadastro from "./components/pages/Cadastro";
 import Cardapio from "./components/pages/Cardapio";
 import Carrinho from "./components/Cart/Cart";
 import Services from "./components/Services/Services";
-import Banner from "./components/Banner/Banner";
+import Sobre from "../src/components/Sobre/sobre";
 import AppStore from "./components/AppStore/AppStore";
 import Testimonial from "./components/Avaliacoes/Avaliacoes";
 import Footer from "./components/Footer/Footer";
 import { ProvedorCarrinho } from "./components/contexts/CartContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Login from "./components/pages/Login"; // ✅ Importe a página de login
+import Login from "./components/pages/Login"; 
+import Categories from "./components/pages/Categories"; // ✅ Importando a seção de categorias
+import ComoFazerPedido from "./components/pages/ComoFazerPedido"; // ✅ Importando a nova seção
 
 const App = () => {
   React.useEffect(() => {
@@ -37,9 +39,16 @@ const App = () => {
             <Route path="/cardapio" element={<Cardapio />} />
             <Route path="/carrinho" element={<Carrinho />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/login" element={<Login />} /> {/* ✅ Adicionando a rota de login */}
+            <Route path="/sobre" element={<Sobre />} /> 
+            <Route path="/login" element={<Login />} />
           </Routes>
-          <Banner />
+
+          {/* ✅ A nova seção de categorias aparece logo abaixo da Home */}
+          <Categories /> 
+          {/* ✅ Adicionando a nova seção "Como Fazer Pedido" abaixo de Categorias */}
+          <ComoFazerPedido />
+          
+          <Sobre />
           <AppStore />
           <Testimonial />
           <Footer />
