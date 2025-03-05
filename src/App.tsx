@@ -1,19 +1,24 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/pages/Home";
-import Cadastro from "./components/pages/Cadastro";
-import Cardapio from "./components/pages/Cardapio";
-import Services from "./components/Services/Services";  // Importando o componente de Serviços
+import Home from "./pages/Home";
+import Cadastro from "./pages/Cadastro";
+import Cardapio from "./pages/Cardapio";
+ // Importando o componente de Serviços
 import Sobre from "../src/components/Sobre/Sobre";
 import AppStore from "./components/AppStore/AppStore";
 import Testimonial from "./components/Avaliacoes/Avaliacoes";
 import Footer from "./components/Footer/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Login from "./components/pages/Login"; 
-import Categories from "./components/pages/Categories"; 
-import ComoFazerPedido from "./components/pages/ComoFazerPedido"; 
+import Login from "./pages/Login"; 
+import Categories from "./pages/Categories"; 
+import ComoFazerPedido from "./pages/ComoFazerPedido"; 
+import ListarProdutos from "./components/produtos/listarprodutos/ListarProdutos";
+import FormProduto from "./components/produtos/formproduto/FormProduto";
+import DeletarProduto from "./components/produtos/deletarproduto/DeletarProduto";
+import ListarProdutosSaudaveis from "./components/produtos/listarprodutossaudaveis/ListarProdutosSaudaveis";
+import Services from "./components/Services/Services";
 
 const App = () => {
   useEffect(() => {
@@ -37,6 +42,11 @@ const App = () => {
           <Route path="/cardapio" element={<Cardapio />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/produtos" element={<ListarProdutos />} />
+          <Route path="/cadatrarproduto" element={<FormProduto />} />
+          <Route path="/atualizarproduto/:id" element={<FormProduto />} />
+          <Route path="/deletarproduto/:id" element={<DeletarProduto />} />
+          <Route path="/produtossaudaveis" element={<ListarProdutosSaudaveis />} />
         </Routes>
 
         {/* Colocando o componente Services abaixo da Home */}
