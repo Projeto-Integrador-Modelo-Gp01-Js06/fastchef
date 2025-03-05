@@ -80,8 +80,8 @@ const Login = () => {
 
           <button
             type='submit'
-            className="rounded bg-indigo-400 flex justify-center
-            hover:bg-indigo-900 text-white w-1/2 py-2">
+            className="w-full bg-[#fa7777] text-white px-6 py-2 rounded-full hover:bg-[#e66a6a] transition"
+          >
             {isLoading ?
               <RotatingLines
                 strokeColor="white"
