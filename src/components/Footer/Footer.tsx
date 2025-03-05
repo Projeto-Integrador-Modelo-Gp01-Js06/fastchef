@@ -5,7 +5,6 @@ import {
   FaLocationArrow,
   FaMobileAlt,
 } from "react-icons/fa";
-import footerLogo from "../../assets/food-logo.png";
 
 const Footer = () => {
 
@@ -90,7 +89,7 @@ const Footer = () => {
         </div>
         <div>
           <div className="text-center py-10 border-t-2 border-gray-300/50">
-            Feito com ❤️ por Jeisa Boaventura | Copyright: {data}
+            FastChef | Copyright: {data}
           </div>
         </div>
       </section>
