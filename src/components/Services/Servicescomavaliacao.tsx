@@ -5,6 +5,7 @@ import Img2 from "../../assets/massas.png";
 import Img3 from "../../assets/biryani4.png";
 import StarRatings from "react-star-ratings";  // Importando a biblioteca para as estrelas
 
+// Tipagem explícita para o estado ratings
 const ServicesData = [
   {
     id: 1,
@@ -33,14 +34,15 @@ const ServicesData = [
 ];
 
 const Services = () => {
-  const [ratings, setRatings] = useState({
+  // Tipando ratings como um objeto com chaves do tipo número
+  const [ratings, setRatings] = useState<Record<number, number>>({
     1: 4, // Acompanhamentos
     2: 5, // Saudáveis
     3: 3, // Massas
   });
 
   // Função para atualizar a avaliação das estrelas
-  const changeRating = (newRating, id) => {
+  const changeRating = (newRating: number, id: number) => {
     setRatings((prevRatings) => ({
       ...prevRatings,
       [id]: newRating,
@@ -84,13 +86,15 @@ const Services = () => {
                     {service.description}
                   </p>
 
-                  {/* Avaliação por estrelas }*/
-   /*               <div className="mt-4">
+                  {/* Avaliação por estrelas */}
+
+                  /*
+                  
+                  <div className="mt-4">
                     <StarRatings
                       rating={ratings[service.id]} // Passando a classificação atual para o componente
                       starRatedColor="yellow"
                       starEmptyColor="gray"
-                      isSelectable={true}
                       starDimension="30px"
                       changeRating={(newRating) => changeRating(newRating, service.id)} // Atualiza a classificação ao clicar
                       numberOfStars={5}
@@ -107,4 +111,5 @@ const Services = () => {
   );
 };
 
-export default Services; */
+export default Services;
+ */
