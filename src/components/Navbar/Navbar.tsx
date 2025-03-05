@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import DarkMode from "./DarkMode";
-import { Link } from "react-router-dom";  // Importe o Link
+import { Link } from "react-router-dom";  
 
 const Menu = [
   {

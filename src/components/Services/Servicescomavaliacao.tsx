@@ -1,4 +1,4 @@
-/*
+/* 
 import React, { useState } from "react";
 import Img4 from "../../assets/salada.png";
 import Img2 from "../../assets/massas.png";
@@ -86,10 +86,7 @@ const Services = () => {
                     {service.description}
                   </p>
 
-                  {/* Avaliação por estrelas */}
-
-                  /*
-                  
+                  {/* Avaliação por estrelas */ /*} 
                   <div className="mt-4">
                     <StarRatings
                       rating={ratings[service.id]} // Passando a classificação atual para o componente
@@ -112,4 +109,4 @@ const Services = () => {
 };
 
 export default Services;
- */
+*/

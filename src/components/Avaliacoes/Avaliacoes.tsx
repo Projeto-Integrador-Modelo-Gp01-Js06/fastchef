@@ -59,7 +59,7 @@ const Testimonial = () => {
                   <div className="my-3">
                     <div
                       key={data.id}
-                      className="flex flex-col justify-center items-center gap-4 text-center   shadow-lg p-1 mx-4 rounded-xl dark:bg-gray-800 bg-gradient-to-r from-red-100 to-red-100 relative text-justify"
+                      className="flex flex-col justify-center items-center gap-4 shadow-lg p-1 mx-4 rounded-xl dark:bg-gray-800 bg-gradient-to-r from-red-100 to-red-100 relative text-justify"
                     >
                       <img
                         className="rounded-full block mx-auto"
