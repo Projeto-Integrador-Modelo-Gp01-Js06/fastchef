@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FastChef - Landing Page 🍔🍕
 
 ## Descrição 📋
@@ -76,3 +77,4 @@ Sua contribuição é muito bem-vinda! 🚀
 Este projeto está licenciado sob a **Licença MIT** - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 A Licença MIT permite que você use, copie, modifique e distribua este software de forma gratuita, com algumas restrições, como a de não fornecer garantias de nenhum tipo.
+=======
