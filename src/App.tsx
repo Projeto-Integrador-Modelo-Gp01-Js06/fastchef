@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/navbar/Navbar"
 import Navbar from "./components/navbar/DarkMode"
 import Home from "./pages/Home";
 import Cadastro from "./pages/Cadastro";
@@ -40,7 +41,7 @@ const App = () => {
     <ToastContainer/>
       <Router>
         <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-          <Navbar />
+          <Navbar/>
 
           <Routes>
             <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
