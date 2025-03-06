@@ -5,7 +5,11 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
 import Produto from "../../../models/Produto";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
+<<<<<<< HEAD
 import { atualizar, cadastrar, listar } from '../../../services/Service';
+=======
+import { atualizar, cadastrar, listar } from '../../../Services/Service';
+>>>>>>> 50dcd70ee6618089589c315d78370f1b4199006a
 
 function FormProduto() {
   const navigate = useNavigate();

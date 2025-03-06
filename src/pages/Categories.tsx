@@ -1,8 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
+<<<<<<< HEAD
 import Massas from "../assets/pizza.png";
 import Salada from "../assets/salada2.png";
 import Peixe from "../assets/peixe.png";
 import PetFood from "../assets/racao.png";
+=======
+import Salada from "../assets/salada2.png";
+import Peixe from "../assets/peixe.png";
+import PetFood from "../assets/racao.png";
+import Massas from "../assets/pizza.png"
+>>>>>>> 50dcd70ee6618089589c315d78370f1b4199006a
 
 const categories = [
   { id: 1, name: "Massas", img: Massas },

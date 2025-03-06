@@ -1,23 +1,23 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
-import { Link, useNavigate } from "react-router-dom";
-import Usuario from "../../../models/Usuario";
-import { cadastrarUsuario } from "../../../services/service";
-import { ToastAlerta } from "../../../utils/ToastAlerta";
-
+import { useNavigate } from "react-router-dom";
+import Usuario from "./../models/Usuario";
+import { cadastrarUsuario } from "./../services/Service";
+import { ToastAlerta } from "./../utils/ToastAlerta";
 
 function Cadastro() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [confirmaSenha, setConfirmaSenha] = useState<string>("");
 
+  // A interface 'Usuario' agora exige a propriedade 'admin', então incluímos ela com um valor padrão
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: "",
     usuario: "",
     senha: "",
     foto: "",
-    admin: false
+    admin: false, // A propriedade 'admin' agora está sendo inicializada corretamente
   });
 
   useEffect(() => {
@@ -41,11 +41,14 @@ function Cadastro() {
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    // Verificando se a senha e a confirmação estão corretas
     if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
       setIsLoading(true);
       try {
+        // Aqui, estamos passando a propriedade 'admin' (que está como false por padrão) junto aos dados
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
         ToastAlerta("Usuário cadastrado com sucesso!", "sucesso");
+        navigate("/login"); // Após cadastro, redireciona para a tela de login
       } catch (error) {
         ToastAlerta("Erro ao cadastrar o usuário!", "erro");
       }
@@ -70,7 +73,7 @@ function Cadastro() {
               id="nome"
               name="nome"
               placeholder="Nome"
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border rounded-lg  py-2"
               value={usuario.nome}
               onChange={atualizarEstado}
             />
@@ -83,7 +86,7 @@ function Cadastro() {
               id="usuario"
               name="usuario"
               placeholder="Email"
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border rounded-lg  py-2"
               value={usuario.usuario}
               onChange={atualizarEstado}
             />
@@ -96,7 +99,7 @@ function Cadastro() {
               id="foto"
               name="foto"
               placeholder="Foto"
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border rounded-lg  py-2"
               value={usuario.foto}
               onChange={atualizarEstado}
             />
@@ -109,7 +112,7 @@ function Cadastro() {
               id="senha"
               name="senha"
               placeholder="Senha"
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border rounded-lg  py-2"
               value={usuario.senha}
               onChange={atualizarEstado}
             />
@@ -122,7 +125,7 @@ function Cadastro() {
               id="confirmarSenha"
               name="confirmarSenha"
               placeholder="Confirmar a senha"
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border rounded-lg  py-2"
               value={confirmaSenha}
               onChange={handleConfirmaSenha}
             />
@@ -131,7 +134,7 @@ function Cadastro() {
           <div className="flex justify-between mt-4">
             <button
               type="submit"
-              className="bg-[#8daf66] hover:bg-lime-400 px-6 py-2 rounded-full text-black w-1/2 mr-2"
+              className="bg-[#8daf66] hover:bg-lime-400 px-6 py-2 rounded-lg text-black w-1/2 mr-2"
             >
               {isLoading ? (
                 <RotatingLines strokeColor="black" width="24" visible={true} />
@@ -141,19 +144,12 @@ function Cadastro() {
             </button>
             <button
               type="button"
-              className="bg-[#fa7777] hover:bg-[#e66a6a]  px-6 py-2 rounded-full text-black w-1/2 ml-2"
-              onClick={retornar}
+              className="bg-[#fa7777] hover:bg-[#e66a6a]  px-6 py-2 rounded-lg text-black w-1/2 ml-2"
             >
               Voltar tela inicial
             </button>
           </div>
         </form>
-        <p className="text-center text-sm mt-4">
-          Já tem uma conta? Faça o {" "}
-          <Link to="/login" className="text-black font-semibold hover:underline hover:text-[#8daf66]">
-            Login
-          </Link>
-        </p>
       </div>
     </div>
   );

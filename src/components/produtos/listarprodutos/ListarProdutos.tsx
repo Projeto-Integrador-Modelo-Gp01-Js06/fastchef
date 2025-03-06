@@ -2,8 +2,12 @@ import { useEffect, useState } from 'react';
 import Produto from '../../../models/Produto';
 import { DNA } from 'react-loader-spinner';
 import CardProdutos from '../cardprodutos/CardProdutos';
+<<<<<<< HEAD
 import { listar } from '../../../services/Service';
 
+=======
+import { listar } from '../../../Services/Service';
+>>>>>>> 50dcd70ee6618089589c315d78370f1b4199006a
 
 
 function ListarProdutos() {
