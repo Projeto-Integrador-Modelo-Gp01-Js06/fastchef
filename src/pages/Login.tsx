@@ -1,72 +1,131 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { RotatingLines } from "react-loader-spinner";
+import { Link, useNavigate } from "react-router-dom";
+import UsuarioLogin from "./../models/UsuarioLogin";
+import AuthContext from "./../contexts/AuthContext";
+import { EyeSlash, Eye } from "@phosphor-icons/react";
 
-const API_URL = 'https://fastchef-backend.onrender.com';
-
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isRegistering, setIsRegistering] = useState(false);
+function Login() {
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const { usuario, handleLogin, isLoading } = useContext(AuthContext);
 
-    const endpoint = isRegistering ? '/usuarios/cadastro' : '/usuarios/login';
-    const response = await fetch(`${API_URL}${endpoint}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    });
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    foto: '', 
+    senha: '',
+    token: '', 
+  
+  });
 
-    const data = await response.json();
-    if (response.ok) {
-      alert(isRegistering ? 'Cadastro realizado!' : 'Login bem-sucedido!');
-      navigate('/');
-    } else {
-      alert(data.message || 'Erro ao processar a solicitação');
+  const [showPassword, setShowPassword] = useState(false)
+
+  useEffect(() => {
+    if (usuario.token !== "") {
+      navigate("/home");
     }
-  };
+  }, [usuario]);
+
+  function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+    setUsuarioLogin({
+      ...usuarioLogin,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  function login(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault();
+    handleLogin(usuarioLogin);
+  }
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100 dark:bg-gray-950 dark:text-white">
-      <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md max-w-sm w-full">
-        <h2 className="text-2xl font-bold text-center mb-6">
-          {isRegistering ? 'Cadastro' : 'Login'}
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
+    <>
+      <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold ">
+
+      <div className= "hidden lg:flex flex-col items-center justify-center h-full  p-10"
+          style={{
+            backgroundImage: `url("https://ik.imagekit.io/c2hajdacu/FastChef/imagem_login-removebg-preview.png?updatedAt=1741058790785")`,
+          }}
+          className="lg:block hidden bg-no-repeat w-full min-h-screen bg-cover bg-center"
+        ></div>
+
+        <form
+          className="flex justify-center items-center flex-col w-1/2 gap-4"
+          onSubmit={login}
+        >
+          <h2 className="text-black text-4xl ">Faça seu Login</h2>
+          <div className="flex flex-col w-full">
+            <label htmlFor="usuario">Usuário</label>
+            <input
+              type="text"
+              id="usuario"
+              name="usuario"
+              placeholder="Usuario"
+              className="border-2 border-slate-700 rounded p-2"
+              value={usuarioLogin.usuario}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                atualizarEstado(e)
+              }
+            />
+          </div>
+          <div className="relative flex flex-col w-full">
+            <label htmlFor="senha">Senha</label>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="senha"
+              name="senha"
+              placeholder="Senha"
+              className="border-2 border-slate-700 rounded p-2"
+              value={usuarioLogin.senha}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                atualizarEstado(e)
+              }
+            />
+            <button
+							type="button"
+							className="top-9 right-2 absolute text-slate-700"
+							onClick={() => setShowPassword(!showPassword)}
+						>
+							{showPassword ? (
+								<EyeSlash size={20} />
+							) : (
+								<Eye size={20} />
+							)}
+						</button>
+          </div>
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-red-400 to-red-300 hover:scale-105 duration-200 text-white py-3 rounded-full mt-4 font-bold"
+            className="rounded bg-zinc-400 flex justify-center
+                                   hover:bg-red-600 text-white w-1/2 py-2"
           >
-            {isRegistering ? 'Cadastrar' : 'Entrar'}
+            {isLoading ? (
+              <RotatingLines
+                strokeColor="white"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="24"
+                visible={true}
+              />
+            ) : (
+              <span>Entrar</span>
+            )}
           </button>
+
+          <hr className="border-slate-800 w-full" />
+
+          <p>
+            Ainda não tem uma conta?{" "}
+            <Link to="/cadastro" className="text-black hover:underline">
+              Cadastre-se
+            </Link>
+          </p>
         </form>
-        <button
-          onClick={() => setIsRegistering(!isRegistering)}
-          className="text-blue-500 mt-4 w-full py-2 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition duration-200"
-        >
-          {isRegistering ? 'Já tem uma conta? Faça login' : 'Não tem conta? Cadastre-se'}
-        </button>
+
       </div>
-    </div>
+    </>
   );
-};
+}
 
 export default Login;

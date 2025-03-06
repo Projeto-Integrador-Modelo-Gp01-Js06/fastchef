@@ -20,6 +20,8 @@ import DeletarProduto from "./components/produtos/deletarproduto/DeletarProduto"
 import ListarProdutosSaudaveis from "./components/produtos/listarprodutossaudaveis/ListarProdutosSaudaveis";
 import Servicos from "./components/Servicos/Servicos";
 import Services from "./components/Servicos/Servicos";
+import { AuthProvider } from "./contexts/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   useEffect(() => {
@@ -36,12 +38,14 @@ const App = () => {
     <Router>
       <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
         <Navbar />
+        <AuthProvider>
+        <ToastContainer/>
 
         <Routes>
           <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/cardapio" element={<Cardapio />} />
-          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/sobre" element={<Sobre />} />         
           <Route path="/login" element={<Login />} />
           <Route path="/produtos" element={<ListarProdutos />} />
           <Route path="/cadatrarproduto" element={<FormProduto />} />
@@ -49,6 +53,7 @@ const App = () => {
           <Route path="/deletarproduto/:id" element={<DeletarProduto />} />
           <Route path="/produtossaudaveis" element={<ListarProdutosSaudaveis />} />
         </Routes>
+        </AuthProvider>
 
         {/* Colocando o componente Services abaixo da Home */}
         <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
