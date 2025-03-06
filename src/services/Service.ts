@@ -20,6 +20,7 @@ export const listar = async (
 ) => {
   const resposta = await api.get(url);
   setDados(resposta.data);
+  return resposta.data;
 };
 
 export const cadastrar = async (

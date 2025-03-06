@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Produto from '../../../models/Produto'
-import { listar } from '../../../services/service'
+import { listar } from '../../../services/Service'
 
 function ListarProdutos() {
     const { id } = useParams<{ id: string }>()

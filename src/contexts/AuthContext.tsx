@@ -1,10 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 import UsuarioLogin from "../models/UsuarioLogin";
-<<<<<<< HEAD
-import { login } from "../services/service";
-=======
 import { login } from "../services/Service";
->>>>>>> 50dcd70ee6618089589c315d78370f1b4199006a
 import { ToastAlerta } from "../utils/ToastAlerta";
 
 interface AuthContextProps {

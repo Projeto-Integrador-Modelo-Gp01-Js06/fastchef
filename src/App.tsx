@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar/DarkMode"
+import Navbar from "./components/Navbar/DarkMode"
 import Home from "./pages/Home";
 import Cadastro from "./pages/Cadastro";
 import Cardapio from "./pages/Cardapio";
