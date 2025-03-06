@@ -1,9 +1,9 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
-import Usuario from "./../models/Usuario";
-import { cadastrarUsuario } from "./../services/Service";
-import { ToastAlerta } from "./../utils/ToastAlerta";
+import Usuario from "../../models/Usuario";
+import { cadastrarUsuario } from "../../services/Service";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Cadastro() {
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ function Cadastro() {
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-3xl font-bold text-center mb-6">Cadastro</h2>
 
-        <form className="space-y-4" onSubmit={cadastrarNovoUsuario}>
+        <form className="space-y-1 p-50" onSubmit={cadastrarNovoUsuario}>
           <div>
             <label htmlFor="nome" className="block text-gray-700">Nome</label>
             <input

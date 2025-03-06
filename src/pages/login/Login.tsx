@@ -3,8 +3,8 @@ import { RotatingLines } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import { EyeSlash, Eye } from "@phosphor-icons/react";
 
-import UsuarioLogin from "./../models/UsuarioLogin";
-import AuthContext from "./../contexts/AuthContext";
+import UsuarioLogin from "../../models/UsuarioLogin";
+import AuthContext from "../../contexts/AuthContext";
 
 function Login() {
   const navigate = useNavigate();
@@ -113,7 +113,7 @@ function Login() {
 
         <p className="text-center mt-4">
           Ainda não tem uma conta?{" "}
-          <Link to="/cadastro" className="text-black hover:underline">
+          <Link to="/cadastro" className="text-[#627947]  hover:underline">
             Cadastre-se
           </Link>
         </p>
