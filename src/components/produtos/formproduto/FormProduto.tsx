@@ -5,7 +5,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
 import Produto from "../../../models/Produto";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
-import { atualizar, cadastrar, listar } from "../../Services/Services";
+import { atualizar, cadastrar, listar } from '../../../Services/Service';
 
 function FormProduto() {
   const navigate = useNavigate();
@@ -14,8 +14,7 @@ function FormProduto() {
 
   const [categoria, setCategoria] = useState<Categoria>({
     id: 0,
-    descricao: "",
-    icone: "",
+    nome: ""
   });
 
   const [produto, setProduto] = useState<Produto>({} as Produto);
@@ -26,11 +25,8 @@ function FormProduto() {
 
   async function buscarProdutoPorId(id: string) {
     try {
-      await listar(`/produto/${id}`, setProduto, {
-        headers: {
-          Authorization: token,
-        },
-      });
+      await listar(`/produto/${id}`, setProduto 
+        );
     } catch (error: any) {
       if (error.toString().includes("401")) {
         handleLogout();
@@ -43,11 +39,8 @@ function FormProduto() {
 
   async function buscarCategoriaPorId(id: string) {
     try {
-      await listar(`/categoria/${id}`, setCategoria, {
-        headers: {
-          Authorization: token,
-        },
-      });
+      await listar(`/categoria/${id}`, setCategoria
+        );
     } catch (error: any) {
       if (error.toString().includes("401")) {
         handleLogout();
@@ -60,9 +53,7 @@ function FormProduto() {
 
   async function buscarCategorias() {
     try {
-      await listar(`/categoria`, setCategorias, {
-        headers: { Authorization: token },
-      });
+      await listar(`/categoria`, setCategorias);
     } catch (error: any) {
       if (error.toString().includes("401")) {
         handleLogout();
@@ -171,7 +162,7 @@ function FormProduto() {
     retornar();
   }
 
-  const categoriaSelecionado = produto.categoria?.id > 0;
+  const categoriaSelecionado = !!produto.categoria?.id && produto.categoria.id > 0;
 
   return (
     <div className="container flex flex-col mx-auto mb-8 items-center">
@@ -259,7 +250,7 @@ function FormProduto() {
           <div className="flex flex-col gap-2 w-1/2 px-1">
             <label htmlFor="proteinas">Sódio</label>
             <input
-              value={produto.acucar || ""}
+              value={produto.sodio || ""}
               onChange={atualizarEstado}
               type="number"
               step=".01"
@@ -301,7 +292,7 @@ function FormProduto() {
             </option>
             {categorias.map((categoria) => (
               <option key={categoria.id} value={categoria.id}>
-                {categoria.descricao}
+                {categoria.nome}
               </option>
             ))}
           </select>

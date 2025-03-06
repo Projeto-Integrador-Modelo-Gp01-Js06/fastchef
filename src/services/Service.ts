@@ -19,7 +19,7 @@ export const login = async (url: string, dados: Object, setDados: Function) => {
   setDados(resposta.data);
 };
 
-export const buscar = async (
+export const listar = async (
   url: string,
   setDados: Function,
 ) => {

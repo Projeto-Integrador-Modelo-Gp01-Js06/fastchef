@@ -5,7 +5,8 @@ import { AuthContext } from "../../../contexts/AuthContext"
 import Produto from "../../../models/Produto"
 
 import { ToastAlerta } from "../../../utils/ToastAlerta"
-import { deletar, listar } from "../../Services/Services"
+import { deletar, listar } from "../../../Services/Service"
+
 
 function DeletarProduto() {
 
@@ -21,11 +22,7 @@ function DeletarProduto() {
 
     async function buscarPorId(id: string) {
         try {
-            await listar(`/produto/${id}`, setProduto, {
-                headers: {
-                    'Authorization': token
-                }
-            })
+            await listar(`/produto/${id}`, setProduto)
         } catch (error: any) {
             if (error.toString().includes('401')) {
                 handleLogout()
