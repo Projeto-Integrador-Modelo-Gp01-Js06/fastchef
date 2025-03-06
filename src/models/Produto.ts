@@ -10,5 +10,5 @@ export default interface Produto{
     acucar: number;
     sodio: number;
     nutriScore: string;
-    categoria: Categoria | null;
+    categoria: Categoria [] | null;
 }
