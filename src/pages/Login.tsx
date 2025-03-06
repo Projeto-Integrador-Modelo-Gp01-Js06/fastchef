@@ -48,8 +48,8 @@ function Login() {
           style={{
             backgroundImage: `url("https://ik.imagekit.io/c2hajdacu/FastChef/imagem_login-removebg-preview.png?updatedAt=1741058790785")`,
           }}
-          className="lg:block hidden bg-no-repeat w-full min-h-screen bg-cover bg-center"
-        ></div>
+           
+        > <div  className="lg:block hidden bg-no-repeat w-full min-h-screen bg-cover bg-center"></div> </div>
 
         <form
           className="flex justify-center items-center flex-col w-1/2 gap-4"
