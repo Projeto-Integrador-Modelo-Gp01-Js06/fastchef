@@ -1,5 +1,3 @@
-import React from "react";
-
 const Cardapio = () => {
   return (
     <div className="p-6 text-center">
