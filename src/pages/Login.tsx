@@ -43,7 +43,7 @@ function Login() {
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
         {/* Coluna da imagem (oculta em telas menores) */}
-        <div className="hidden lg:flex flex-col items-center justify-center h-full p-10">
+        <div className="hidden lg:flex flex-col items-center justify-center h-full p-10">isloading centralização"
           <img
             src="https://ik.imagekit.io/c2hajdacu/FastChef/imagem_login-removebg-preview.png?updatedAt=1741058790785"
             alt="Login"
