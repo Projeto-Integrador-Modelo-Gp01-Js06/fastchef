@@ -28,10 +28,12 @@ const Navbar = () => {
         <div className="container py-1 sm:py-0">
           <div className="flex justify-between items-center">
             <div>
-              <a href="/" className="font-bold text-1xl sm:text-4xl flex gap-0 items-center bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-verde">
-                <img src="https://i.ibb.co/QFpjykTY/FastChef.png" alt="Logo" className="w-[50px]" />
-                FastChef
-              </a>
+            <Link to="/">
+                <a href="#" className="font-bold text-1xl sm:text-4xl flex gap-0 items-center bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-verde">
+                  <img src="https://i.ibb.co/QFpjykTY/FastChef.png" alt="Logo" className="w-[50px]"/>
+                  FastChef
+                </a>
+              </Link>
             </div>
             <div className="flex items-center gap-4 ml-auto">
               <ul className="hidden sm:flex items-center gap-2">
