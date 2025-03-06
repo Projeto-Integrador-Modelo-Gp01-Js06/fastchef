@@ -1,3 +1,5 @@
+import Categoria from "./Categoria";
+import Usuario from "./Usuario";
 
 export default interface Produto {
     id: number;
@@ -10,6 +12,6 @@ export default interface Produto {
     sodio: number;
     nutriScore:	string;
 
-    //usuario: Usuario | null ;
-    //categoria: Categoria | null;
+    usuario: Usuario | null ;
+    categoria: Categoria | null;
 }

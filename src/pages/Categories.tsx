@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import Massas from "../../assets/pizza.png";
-import Salada from "../../assets/salada2.png";
-import Peixe from "../../assets/peixe.png";
-import PetFood from "../../assets/racao.png";
+import Massas from "../assets/pizza.png";
+import Salada from "../assets/salada2.png";
+import Peixe from "../assets/peixe.png";
+import PetFood from "../assets/racao.png";
 
 const categories = [
   { id: 1, name: "Massas", img: Massas },
