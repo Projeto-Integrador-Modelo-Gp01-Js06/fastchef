@@ -1,7 +1,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { BrowserRouter, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Sobre from "../src/components/Sobre/Sobre";
 import AppStore from "./components/AppStore/AppStore";
 import Testimonial from "./components/Avaliacoes/Avaliacoes";
@@ -15,6 +15,8 @@ import Home from "./components/pages/Home";
 import Login from "./components/pages/login/Login";
 import Servicos from "./components/Servicos/Servicos";
 import { AuthProvider } from "./contexts/AuthContext";  // Certifique-se de importar o AuthProvider
+import Perfil from "./components/pages/perfil/Perfil";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   useEffect(() => {
@@ -28,39 +30,38 @@ const App = () => {
   }, []);
 
   return (
-    <AuthProvider> {/* Envolva a aplicação com o AuthProvider */}
-      <Router>
-        <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-          <Navbar />
+    <>
+      <AuthProvider>
+        <ToastContainer />
+        <BrowserRouter>
 
-          <Routes>
-            <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
-            <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/cardapio" element={<Cardapio />} />
-            <Route path="/sobre" element={<Sobre />} />
-            <Route 
-            path="/login" 
-            element={
-              <AuthProvider> {/* Envolvendo apenas as páginas que precisam do AuthContext */}
-                <Login />
-              </AuthProvider>
-            } 
-          />
-          </Routes>
+          <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+            <Navbar />
 
-          {/* Colocando o componente Services abaixo da Home */}
-          <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
+            <Routes>
+              <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
+              <Route path="/cadastro" element={<Cadastro />} />
+              <Route path="/cardapio" element={<Cardapio />} />
+              <Route path="/sobre" element={<Sobre />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/perfil" element={<Perfil />} />
+            </Routes>
 
-          {/* Outras seções abaixo */}
-          <Categories />
-          <ComoFazerPedido />
-          <Sobre />
-          <AppStore />
-          <Testimonial />
-          <Footer />
-        </div>
-      </Router>
-    </AuthProvider>
+            {/* Colocando o componente Services abaixo da Home */}
+            <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
+
+            {/* Outras seções abaixo */}
+            <Categories />
+            <ComoFazerPedido />
+            <Sobre />
+            <AppStore />
+            <Testimonial />
+            <Footer />
+          </div>
+
+        </BrowserRouter>
+      </AuthProvider>
+    </>
   );
 };
 
