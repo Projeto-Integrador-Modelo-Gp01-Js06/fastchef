@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importando useNavigate
-import Pizza from "../../assets/pizza.png";
-import Donuts from "../../assets/donuts.png";
-import Salada from "../../assets/salada2.png";
-import Vector from "../../assets/vector3.png";
+import Pizza from "../assets/pizza.png";
+import Donuts from "../assets/donuts.png";
+import Salada from "../assets/salada2.png";
+import Vector from "../assets/vector3.png";
 
 const ListaImagem = [
   { id: 1, img: Pizza },

@@ -2,8 +2,9 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../../contexts/AuthContext";
 import { ToastAlerta } from "../../../../utils/ToastAlerta";
-import { atualizar } from "../../../../Services/Service";
+
 import { RotatingLines } from "react-loader-spinner";
+import { atualizar } from "../../../../services/Service";
 
 function AtualizarPerfil() {
     const navigate = useNavigate();

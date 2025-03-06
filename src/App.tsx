@@ -2,21 +2,27 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { BrowserRouter, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Cadastro from "./pages/Cadastro";
+import Cardapio from "./pages/Cardapio";
+ // Importando o componente de Serviços
 import Sobre from "../src/components/Sobre/Sobre";
 import AppStore from "./components/AppStore/AppStore";
 import Testimonial from "./components/Avaliacoes/Avaliacoes";
 import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
-import Cadastro from "./components/pages/cadastro/Cadastro";
-import Cardapio from "./components/pages/Cardapio";
-import Categories from "./components/pages/Categories";
-import ComoFazerPedido from "./components/pages/ComoFazerPedido";
-import Home from "./components/pages/Home";
-import Login from "./components/pages/login/Login";
+import "aos/dist/aos.css";
+import Login from "./pages/Login"; 
+import Categories from "./pages/Categories"; 
+import ComoFazerPedido from "./pages/ComoFazerPedido"; 
+import ListarProdutos from "./components/produtos/listarprodutos/ListarProdutos";
+import ListarProdutosSaudaveis from "./components/produtos/listarprodutossaudaveis/ListarProdutosSaudaveis";
 import Servicos from "./components/Servicos/Servicos";
 import { AuthProvider } from "./contexts/AuthContext";  // Certifique-se de importar o AuthProvider
 import Perfil from "./components/pages/perfil/Perfil";
 import { ToastContainer } from "react-toastify";
+import Navbar from "./components/Navbar/Navbar";
+
+ // Certifique-se de importar o AuthProvider
 
 const App = () => {
   useEffect(() => {
