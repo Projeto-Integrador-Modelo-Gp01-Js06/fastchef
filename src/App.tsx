@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar/Navbar"
-import Navbar from "./components/navbar/DarkMode"
 import Home from "./pages/Home";
 import Cadastro from "./pages/Cadastro";
 import Cardapio from "./pages/Cardapio";
@@ -23,6 +21,7 @@ import Servicos from "./components/Servicos/Servicos";
 import Services from "./components/Servicos/Servicos";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ToastContainer } from "react-toastify";
+import Navbar from "./components/navbar/Navbar";
  // Certifique-se de importar o AuthProvider
 
 const App = () => {
