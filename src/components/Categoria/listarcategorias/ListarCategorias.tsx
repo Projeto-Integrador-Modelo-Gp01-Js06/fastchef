@@ -50,7 +50,12 @@ function ListarCategorias() {
 }, [])
   return (
     <>
-
+  
+  <div className="flex justify-end">
+    <button className="border-black border-2 rounded-lg p-1 bg-[#bad381] hover:text-white mt-3 -mb-3">
+        EDITAR
+    </button>
+</div>
     <div className=" rounded-lg p-4 bg-[#fa7777] w-full my-4">
     <h2 className="text-3xl font-bold text-center text-white mb-6">CATEGORIAS</h2>
     <div className="flex justify-center items-center  ">
