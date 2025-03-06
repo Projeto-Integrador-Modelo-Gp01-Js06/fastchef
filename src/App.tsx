@@ -37,6 +37,7 @@ const App = () => {
 
   return (
     <AuthProvider> {/* Envolva a aplicação com o AuthProvider */}
+    <ToastContainer/>
       <Router>
         <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
           <Navbar />
