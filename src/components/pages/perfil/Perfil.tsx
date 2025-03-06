@@ -34,7 +34,7 @@ function Perfil() {
                 className="relative mt-[-6rem] h-72 flex flex-col 
                     bg-red-500 text-white text-2xl items-center justify-center rounded-b-3xl"
             >
-                <div className="relative mt-[-3rem] ml-36">
+                <div className="relative ml-36">
                     <ModalPerfil />
                 </div>
                 <div className='mt-4'>
