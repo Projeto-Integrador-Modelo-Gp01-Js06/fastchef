@@ -24,7 +24,7 @@ import Services from "./components/Servicos/Servicos";
 import Navbar from "./components/navbar/Navbar";
  // Certifique-se de importar o AuthProvider
 import { AuthProvider } from "./contexts/AuthContext";  // Certifique-se de importar o AuthProvider
-import Perfil from "./components/pages/perfil/Perfil";
+import Perfil from "./pages/perfil/Perfil";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
