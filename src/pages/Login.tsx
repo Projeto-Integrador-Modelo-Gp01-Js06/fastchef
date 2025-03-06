@@ -17,10 +17,9 @@ function Login() {
     foto: '', 
     senha: '',
     token: '', 
-  
   });
 
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     if (usuario.token !== "") {
@@ -42,22 +41,28 @@ function Login() {
 
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold ">
-
-      <div className= "hidden lg:flex flex-col items-center justify-center h-full  p-10"
-          style={{
-            backgroundImage: `url("https://ik.imagekit.io/c2hajdacu/FastChef/imagem_login-removebg-preview.png?updatedAt=1741058790785")`,
-          }}
-           
-        > <div  className="lg:block hidden bg-no-repeat w-full min-h-screen bg-cover bg-center"></div> </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
+      {/* Coluna da imagem (oculta em telas menores) */}
+      <div className="hidden lg:flex flex-col items-center justify-center h-full  p-10">
+        <img
+          src="https://ik.imagekit.io/c2hajdacu/FastChef/logo_fast_chef-removebg-preview.png?updatedAt=1741021601740"
+          alt="Logo FastChef"
+          className="max-w-xs mb-10"
+        />
+        <img
+          src="https://ik.imagekit.io/c2hajdacu/FastChef/imagem_login-removebg-preview.png?updatedAt=1741058790785"
+          alt="Login"
+          className="max-w-xs"
+        />
+      </div>
 
         <form
-          className="flex justify-center items-center flex-col w-1/2 gap-4"
+          className="w-full lg:w-1/2 p-1 my-10 mx-40 max-w-md"
           onSubmit={login}
         >
-          <h2 className="text-black text-4xl ">Faça seu Login</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">Faça seu Login</h2>
           <div className="flex flex-col w-full">
-            <label htmlFor="usuario">Usuário</label>
+            <label htmlFor="usuario">Usuário (E-mail)</label>
             <input
               type="text"
               id="usuario"
@@ -84,21 +89,20 @@ function Login() {
               }
             />
             <button
-							type="button"
-							className="top-9 right-2 absolute text-slate-700"
-							onClick={() => setShowPassword(!showPassword)}
-						>
-							{showPassword ? (
-								<EyeSlash size={20} />
-							) : (
-								<Eye size={20} />
-							)}
-						</button>
+              type="button"
+              className="top-9 right-2 absolute text-slate-700"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <EyeSlash size={20} />
+              ) : (
+                <Eye size={20} />
+              )}
+            </button>
           </div>
           <button
             type="submit"
-            className="rounded bg-zinc-400 flex justify-center
-                                   hover:bg-red-600 text-white w-1/2 py-2"
+            className=" my-5 w-full bg-[#fa7777] text-white px-6 py-2 rounded-lg hover:bg-[#e66a6a] transition"
           >
             {isLoading ? (
               <RotatingLines

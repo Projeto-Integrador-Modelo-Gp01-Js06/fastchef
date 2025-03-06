@@ -22,6 +22,7 @@ import Servicos from "./components/Servicos/Servicos";
 import Services from "./components/Servicos/Servicos";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ToastContainer } from "react-toastify";
+ // Certifique-se de importar o AuthProvider
 
 const App = () => {
   useEffect(() => {
@@ -35,38 +36,39 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-        <Navbar />
-        <AuthProvider>
-        <ToastContainer/>
+    <AuthProvider> {/* Envolva a aplicação com o AuthProvider */}
+      <Router>
+        <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+          <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
-          <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/cardapio" element={<Cardapio />} />
-          <Route path="/sobre" element={<Sobre />} />         
-          <Route path="/login" element={<Login />} />
-          <Route path="/produtos" element={<ListarProdutos />} />
-          <Route path="/cadatrarproduto" element={<FormProduto />} />
-          <Route path="/atualizarproduto/:id" element={<FormProduto />} />
-          <Route path="/deletarproduto/:id" element={<DeletarProduto />} />
-          <Route path="/produtossaudaveis" element={<ListarProdutosSaudaveis />} />
-        </Routes>
-        </AuthProvider>
+          <Routes>
+            <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/cardapio" element={<Cardapio />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route 
+            path="/login" 
+            element={
+              <AuthProvider> {/* Envolvendo apenas as páginas que precisam do AuthContext */}
+                <Login />
+              </AuthProvider>
+            } 
+          />
+          </Routes>
 
-        {/* Colocando o componente Services abaixo da Home */}
-        <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
+          {/* Colocando o componente Services abaixo da Home */}
+          <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
 
-        {/* Outras seções abaixo */}
-        <Categories />
-        <ComoFazerPedido />
-        <Sobre />
-        <AppStore />
-        <Testimonial />
-        <Footer />
-      </div>
-    </Router>
+          {/* Outras seções abaixo */}
+          <Categories />
+          <ComoFazerPedido />
+          <Sobre />
+          <AppStore />
+          <Testimonial />
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 };
 
