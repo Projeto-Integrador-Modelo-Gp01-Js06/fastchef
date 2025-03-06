@@ -2,7 +2,6 @@ import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import { EyeSlash, Eye } from "@phosphor-icons/react";
-
 import UsuarioLogin from "../../models/UsuarioLogin";
 import AuthContext from "../../contexts/AuthContext";
 
@@ -23,7 +22,7 @@ function Login() {
 
   useEffect(() => {
     if (usuario.token) {
-      navigate("/home");
+      navigate("/perfil");
     }
   }, [usuario.token, navigate]);
 

@@ -1,4 +1,4 @@
-import React from "react";
+import ListarCategorias from "../components/Categoria/listarcategorias/ListarCategorias";
 
 const Cardapio = () => {
   return (
