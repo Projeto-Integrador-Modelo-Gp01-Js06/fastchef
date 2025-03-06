@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Usuario from "../../../models/Usuario";
 import { cadastrarUsuario } from "../../../Services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
@@ -148,6 +148,12 @@ function Cadastro() {
             </button>
           </div>
         </form>
+        <p className="text-center text-sm mt-4">
+          Já tem uma conta? Faça o {" "}
+          <Link to="/login" className="text-black font-semibold hover:underline hover:text-[#8daf66]">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

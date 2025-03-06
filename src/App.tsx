@@ -14,7 +14,7 @@ import ComoFazerPedido from "./components/pages/ComoFazerPedido";
 import Home from "./components/pages/Home";
 import Login from "./components/pages/login/Login";
 import Servicos from "./components/Servicos/Servicos";
-import { AuthProvider } from "./contexts/AuthContext";
+import { AuthProvider } from "./contexts/AuthContext";  // Certifique-se de importar o AuthProvider
 
 const App = () => {
   useEffect(() => {
@@ -28,31 +28,39 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-        <Navbar />
+    <AuthProvider> {/* Envolva a aplicação com o AuthProvider */}
+      <Router>
+        <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+          <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
-          <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/cardapio" element={<Cardapio />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/login" element={<Login />} />
+          <Routes>
+            <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/cardapio" element={<Cardapio />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route 
+            path="/login" 
+            element={
+              <AuthProvider> {/* Envolvendo apenas as páginas que precisam do AuthContext */}
+                <Login />
+              </AuthProvider>
+            } 
+          />
+          </Routes>
 
-        </Routes>
+          {/* Colocando o componente Services abaixo da Home */}
+          <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
 
-        {/* Colocando o componente Services abaixo da Home */}
-        <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
-
-        {/* Outras seções abaixo */}
-        <Categories />
-        <ComoFazerPedido />
-        <Sobre />
-        <AppStore />
-        <Testimonial />
-        <Footer />
-      </div>
-    </Router>
+          {/* Outras seções abaixo */}
+          <Categories />
+          <ComoFazerPedido />
+          <Sobre />
+          <AppStore />
+          <Testimonial />
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 };
 
