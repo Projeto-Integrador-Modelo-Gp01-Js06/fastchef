@@ -18,7 +18,7 @@ import ListarProdutos from "./components/produtos/listarprodutos/ListarProdutos"
 import FormProduto from "./components/produtos/formproduto/FormProduto";
 import DeletarProduto from "./components/produtos/deletarproduto/DeletarProduto";
 import ListarProdutosSaudaveis from "./components/produtos/listarprodutossaudaveis/ListarProdutosSaudaveis";
-import Services from "./components/Services/Services";
+import Services from "./components/Servicos/Services";
 
 const App = () => {
   useEffect(() => {

@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react';
 import Produto from '../../../models/Produto';
 import { DNA } from 'react-loader-spinner';
 import CardProdutos from '../cardprodutos/CardProdutos';
-import { buscar } from '../../../services/Service';
+import { listar } from '../../../services/Service';
+
+
 
 function ListarProdutos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
 
   async function buscarProdutos() {
     try {
-      await buscar('/produto', setProdutos); // Sem headers de autenticação
+      await listar('/produto', setProdutos); // Sem headers de autenticação
     } catch (error: any) {
       console.error('Erro ao buscar produtos:', error);
     }

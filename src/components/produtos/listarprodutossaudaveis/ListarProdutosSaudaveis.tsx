@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Produto from "../../../models/Produto";
 import { DNA } from "react-loader-spinner";
 import CardProdutos from "../cardprodutos/CardProdutos";
-import { listar } from "../../Services/Services";
+import { listar } from "../../../services/Service";
+
 
 function ListarProdutos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);

@@ -82,7 +82,7 @@ function CardProdutos({ produto }: CardProdutoProps) {
           </div>
           {produto.categoria ? (
             <p className="text-base italic text-center">
-              Categoria: {produto.categoria?.descricao}
+              Categoria: {produto.categoria?.nome}
             </p>
           ) : (
             ""
