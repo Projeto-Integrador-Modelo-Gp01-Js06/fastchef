@@ -48,7 +48,7 @@ function Cadastro() {
         // Aqui, estamos passando a propriedade 'admin' (que está como false por padrão) junto aos dados
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
         ToastAlerta("Usuário cadastrado com sucesso!", "sucesso");
-        navigate("/servicos"); // Após cadastro, redireciona para a tela de login
+        navigate("/login"); // Após cadastro, redireciona para a tela de login
       } catch (error) {
         ToastAlerta("Erro ao cadastrar o usuário!", "erro");
       }
