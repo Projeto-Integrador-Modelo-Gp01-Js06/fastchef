@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cadastro from "./pages/cadastro/Cadastro";
-import Cardapio from "./pages/Cardapio";
 import Home from "./pages/Home";
-import AOS from "aos";
+import Cardapio from "./pages/Cardapio";
 import "aos/dist/aos.css";
 import Sobre from "../src/components/Sobre/Sobre";
 import AppStore from "./components/AppStore/AppStore";
@@ -18,6 +17,8 @@ import { AuthProvider } from "./contexts/AuthContext"; //
 import Perfil from "./pages/perfil/Perfil";
 import Navbar from "./components/navbar/Navbar";
 import Equipe from "./pages/equipe/Equipe";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
 
 
 
