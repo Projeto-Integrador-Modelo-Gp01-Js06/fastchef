@@ -5,6 +5,7 @@ import {
   FaLocationArrow,
   FaMobileAlt,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
 
@@ -52,9 +53,9 @@ const Footer = () => {
                 </h1>
                 <ul className={`flex flex-col gap-3`}>
                   <li className="cursor-pointer">Inicio</li>
-                  <li className="cursor-pointer">Sobre</li>
-                  <li className="cursor-pointer">Serviços</li>
-                  <li className="cursor-pointer">Login</li>
+                  <li className="cursor-pointer"><Link to="/Sobre">Sobre</Link></li>
+                  <li className="cursor-pointer"><Link to="/categories">Serviços</Link></li>
+                  <li className="cursor-pointer"><Link to="/login">Login</Link></li>
                 </ul>
               </div>
             </div>
@@ -81,7 +82,7 @@ const Footer = () => {
                 <li className="cursor-pointer">Datas</li>
                   <li className="cursor-pointer">Festas</li>
                   <li className="cursor-pointer">Aniversários</li>
-                  <li className="cursor-pointer">Menu</li>
+                  <li className="cursor-pointer">Menu<Link to="/perfil">Perfil</Link></li>
                 </ul>
               </div>
             </div>
