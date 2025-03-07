@@ -10,14 +10,13 @@ function Cadastro() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [confirmaSenha, setConfirmaSenha] = useState<string>("");
 
-  // A interface 'Usuario' agora exige a propriedade 'admin', então incluímos ela com um valor padrão
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: "",
     usuario: "",
     senha: "",
     foto: "",
-    admin: false, // A propriedade 'admin' agora está sendo inicializada corretamente
+    admin: false
   });
 
   useEffect(() => {
@@ -41,14 +40,11 @@ function Cadastro() {
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // Verificar se a senha e a confirmação estão corretas
     if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
       setIsLoading(true);
       try {
-        // Passando a propriedade 'admin' (que está como false por padrão) junto aos dados
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
         ToastAlerta("Usuário cadastrado com sucesso!", "sucesso");
-        navigate("/login"); // Após cadastro, redireciona para a tela de login
       } catch (error) {
         ToastAlerta("Erro ao cadastrar o usuário!", "erro");
       }
@@ -80,52 +76,52 @@ function Cadastro() {
           </div>
 
           <div>
-            <label htmlFor="usuario" className="block text-gray-700 dark:text-gray-300 px-1">Email</label>
+            <label htmlFor="usuario" className="block text-gray-700">Email</label>
             <input
               type="email"
               id="usuario"
               name="usuario"
               placeholder="Email"
-              className="w-full border border-black  rounded-lg py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white px-1"
+              className="w-full border rounded-lg px-4 py-2"
               value={usuario.usuario}
               onChange={atualizarEstado}
             />
           </div>
 
           <div>
-            <label htmlFor="foto" className="block text-gray-700 dark:text-gray-300 px-1">Foto</label>
+            <label htmlFor="foto" className="block text-gray-700">Foto</label>
             <input
               type="text"
               id="foto"
               name="foto"
               placeholder="Foto"
-              className="w-full border border-black  rounded-lg py-2 px-1 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              className="w-full border rounded-lg px-4 py-2"
               value={usuario.foto}
               onChange={atualizarEstado}
             />
           </div>
 
           <div>
-            <label htmlFor="senha" className="block text-gray-700 dark:text-gray-300 px-1">Senha</label>
+            <label htmlFor="senha" className="block text-gray-700">Senha</label>
             <input
               type="password"
               id="senha"
               name="senha"
               placeholder="Senha"
-              className="w-full border px-1 border-black  rounded-lg py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              className="w-full border rounded-lg px-4 py-2"
               value={usuario.senha}
               onChange={atualizarEstado}
             />
           </div>
 
           <div>
-            <label htmlFor="confirmarSenha" className="block text-gray-700  dark:text-gray-300 px-1">Confirmar Senha</label>
+            <label htmlFor="confirmarSenha" className="block text-gray-700">Confirmar Senha</label>
             <input
               type="password"
               id="confirmarSenha"
               name="confirmarSenha"
               placeholder="Confirmar a senha"
-              className="w-full border border-black  rounded-lg py-2 px-1 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              className="w-full border rounded-lg px-4 py-2"
               value={confirmaSenha}
               onChange={handleConfirmaSenha}
             />

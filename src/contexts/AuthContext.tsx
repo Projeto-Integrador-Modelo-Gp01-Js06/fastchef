@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import UsuarioLogin from "../models/UsuarioLogin";
 import { login } from "../services/Service";
 import { ToastAlerta } from "../utils/ToastAlerta";
@@ -27,7 +27,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         senha: '',
         foto: '',
         admin: false,
-        token: ''
+        token: '',
     });
 
     const [isLoading, setIsLoading] = useState(false);
@@ -56,6 +56,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             admin: false,
             token: '',
         })
+        localStorage.removeItem("usuario");
     }
 
     return (

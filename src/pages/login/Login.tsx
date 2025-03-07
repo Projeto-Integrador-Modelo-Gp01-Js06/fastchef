@@ -41,7 +41,12 @@ function Login() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
       {/* Coluna da imagem (oculta em telas menores) */}
-      <div className="hidden lg:flex flex-col items-center justify-center h-full p-10">
+      <div className="hidden lg:flex flex-col items-center justify-center h-full  p-10">
+        <img
+          src="https://ik.imagekit.io/c2hajdacu/FastChef/logo_fast_chef-removebg-preview.png?updatedAt=1741021601740"
+          alt="Logo FastChef"
+          className="max-w-xs mb-10"
+        />
         <img
           src="https://ik.imagekit.io/c2hajdacu/FastChef/imagem_login-removebg-preview.png?updatedAt=1741058790785"
           alt="Login"
@@ -94,31 +99,28 @@ function Login() {
           className="my-5 w-full bg-[#fa7777] text-white px-6 py-2 rounded-lg hover:bg-[#e66a6a] transition"
         >
           <div className="flex items-center justify-center">
-            {isLoading ? (
+            {isLoading ? 
               <RotatingLines
                 strokeColor="white"
                 strokeWidth="5"
                 animationDuration="0.75"
                 width="24"
-                visible={true}
-              />
-            ) : (
+                visible={true} />
+              :
               <span>Entrar</span>
-            )}
-          </div>
-        </button>
+            }
+            </div>
+          </button>
+        </form>
 
-        <hr className="border-slate-800 w-full" />
-
-        <p className="text-center mt-4">
+        <p className="text-center text-sm mt-4">
           Ainda não tem uma conta?{" "}
-          <Link to="/cadastro" className="text-[#627947]  hover:underline">
+          <Link to="/cadastro" className="text-black font-semibold hover:underline">
             Cadastre-se
           </Link>
         </p>
-      </form>
-    </div>
+      </div>
   );
-}
+};
 
 export default Login;

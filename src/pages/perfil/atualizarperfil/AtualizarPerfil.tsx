@@ -9,7 +9,6 @@ import Usuario from "../../../models/Usuario";
 function AtualizarPerfil() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [confirmarSenha, setConfirmarSenha] = useState<string>("")
 
     const { usuario, setUsuario } = useContext(AuthContext);
     const token = usuario.token;
@@ -88,7 +87,7 @@ function AtualizarPerfil() {
                         placeholder="URL da Foto"
                         name="foto"
                         required
-                        className="w-full border border-black  rounded-lg py-2 dark:border-gray-600 px-2"
+                        className="border-2 border-slate-700 rounded p-2"
                         value={usuario.foto}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
