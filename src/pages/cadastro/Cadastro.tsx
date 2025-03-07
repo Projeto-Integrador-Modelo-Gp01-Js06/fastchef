@@ -147,9 +147,15 @@ function Cadastro() {
               className="bg-[#fa7777] hover:bg-[#e66a6a] px-6 py-2 rounded-lg text-black w-1/2 ml-2"
             >
               <Link to="/">
-              Voltar tela inicial</Link>
+                Voltar tela inicial</Link>
             </button>
           </div>
+          <p className="text-center mt-4">
+            Já tem uma conta? Faça o {" "}
+            <Link to="/cadastro" className="text-[#627947]  hover:underline">
+              Login
+            </Link>
+          </p>
         </form>
       </div>
     </div>

@@ -4,10 +4,12 @@ import AuthContext from "../../../contexts/AuthContext";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { atualizar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import Usuario from "../../../models/Usuario";
 
 function AtualizarPerfil() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [confirmarSenha, setConfirmarSenha] = useState<string>("")
 
     const { usuario, setUsuario } = useContext(AuthContext);
     const token = usuario.token;
@@ -26,22 +28,26 @@ function AtualizarPerfil() {
         });
     }
 
-    async function atualizarFoto(e: ChangeEvent<HTMLFormElement>) {
+    async function atualizarUsuario(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        setIsLoading(true)
-        try {
-            await atualizar(`/perfil`, usuario, setUsuario, {
-                headers: {
-                    Authorization: token,
-                },
-            });
-            ToastAlerta('Foto de usuário atualizada com sucesso', 'sucesso')
+        if (usuario.senha && usuario.senha.length >= 8) {
+            setIsLoading(true)
+            try {
+                await atualizar(`/usuarios/atualizar`, usuario, setUsuario, {
+                    headers: {
+                        Authorization: token,
+                    },
+                });
+                ToastAlerta("Usuário atualizado com sucesso!", "sucesso");
 
-        } catch (error: any) {
-            ToastAlerta('Erro ao atualizar a foto', 'erro')
-        } finally {
-            setIsLoading(false);
+            } catch (error: any) {
+                ToastAlerta("Erro ao atualizar o usuário!", "erro");
+            }
+        } else {
+            ToastAlerta("Dados estão inconsistentes! Verifique os dados.", "erro");
+            setUsuario({ ...usuario, senha: "" });
         }
+        setIsLoading(false)
     }
 
     return (
@@ -50,7 +56,31 @@ function AtualizarPerfil() {
                 Editar Perfil
             </h1>
 
-            <form className="flex flex-col w-1/2 gap-4" onSubmit={atualizarFoto}>
+            <form className="flex flex-col w-1/2 gap-4" onSubmit={atualizarUsuario}>
+                <div>
+                    <label htmlFor="nome" className="block m-15 text-gray-700 dark:text-gray-300 px-1">Nome</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Nome"
+                        className="w-full border-black border rounded-lg py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white px-1"
+                        value={usuario.nome}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="usuario" className="block text-gray-700 dark:text-gray-300 px-1">Email</label>
+                    <input
+                        type="email"
+                        id="usuario"
+                        name="usuario"
+                        placeholder="Email"
+                        className="w-full border border-black  rounded-lg py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white px-1"
+                        value={usuario.usuario}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    />
+                </div>
                 <div className="flex flex-col gap-2">
                     <label htmlFor="titulo">Nova foto</label>
                     <input
@@ -60,6 +90,18 @@ function AtualizarPerfil() {
                         required
                         className="border-2 border-slate-700 rounded p-2"
                         value={usuario.foto}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="senha" className="block text-gray-700 dark:text-gray-300 px-1">Senha</label>
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Senha"
+                        className="w-full border px-1 border-black  rounded-lg py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                        value={usuario.senha}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
