@@ -78,7 +78,15 @@ function CardProdutos({ produto }: CardProdutoProps) {
             <p className="text-sm">Gordura Saturada: {produto.gorduraSaturada} g</p>
             <p className="text-sm">Açúcar: {produto.acucar} g</p>
             <p className="text-sm">Sódio: {produto.sodio} g</p>
-            <p className="text-sm">NutriScore: {produto.nutriScore} g</p>
+            <p
+              className={`text-lg font-bold ${
+                ["A", "B"].includes(produto.nutriScore) ? "text-green-500" :
+                produto.nutriScore === "C" ? "text-yellow-500" : "text-red-500"
+              }`}>
+                NutriScore: {
+                ["A", "B"].includes(produto.nutriScore) ? " SAUDÁVEL" :
+                produto.nutriScore === "C" ? " SABOROSO" : " MUITO SABOROSO"}
+            </p>
           </div>
           {produto.categoria ? (
             <p className="text-base italic text-center">

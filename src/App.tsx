@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Cadastro from "./pages/Cadastro";
 import Cardapio from "./pages/Cardapio";
@@ -17,7 +16,6 @@ import ComoFazerPedido from "./pages/ComoFazerPedido";
 import Servicos from "./components/Servicos/Servicos";
 import { AuthProvider } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar/Navbar";
- // Certifique-se de importar o AuthProvider
 
 const App = () => {
   useEffect(() => {

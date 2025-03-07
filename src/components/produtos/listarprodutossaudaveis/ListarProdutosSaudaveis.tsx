@@ -3,10 +3,6 @@ import Produto from "../../../models/Produto";
 import { DNA } from "react-loader-spinner";
 import CardProdutos from "../cardprodutos/CardProdutos";
 import { listar } from "../../../services/Service";
-<<<<<<< HEAD
-
-=======
->>>>>>> 50dcd70ee6618089589c315d78370f1b4199006a
 
 function ListarProdutos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
