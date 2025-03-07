@@ -3,25 +3,21 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
-import Cadastro from "./pages/Cadastro";
-import Cardapio from "./pages/Cardapio";
 import Sobre from "../src/components/Sobre/Sobre";
 import AppStore from "./components/AppStore/AppStore";
 import Testimonial from "./components/Avaliacoes/Avaliacoes";
 import Footer from "./components/Footer/Footer";
 import "aos/dist/aos.css";
-import Login from "./pages/Login";
 import Categories from "./pages/Categories";
 import ComoFazerPedido from "./pages/ComoFazerPedido";
 import Servicos from "./components/Servicos/Servicos";
 import Perfil from "./pages/perfil/Perfil";
 import { ToastContainer } from "react-toastify";
-import Navbar from "./components/Navbar/Navbar";
-import Cadastro from "./pages/cadastro/Cadastro";
 import Cardapio from "./pages/Cardapio";
 import Login from "./pages/login/Login";
 import { AuthProvider } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar/Navbar";
+import Cadastro from "./pages/cadastro/Cadastro";
 
 // Componente para rolar ao topo em cada mudança de rota
 function ScrollToTop() {
