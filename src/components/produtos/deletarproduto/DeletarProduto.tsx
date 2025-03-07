@@ -5,11 +5,6 @@ import { AuthContext } from "../../../contexts/AuthContext"
 import Produto from "../../../models/Produto"
 import { ToastAlerta } from "../../../utils/ToastAlerta"
 import { deletar, listar } from "../../../services/Service"
-<<<<<<< HEAD
-
-
-=======
->>>>>>> Dupla-3
 
 function DeletarProduto() {
 

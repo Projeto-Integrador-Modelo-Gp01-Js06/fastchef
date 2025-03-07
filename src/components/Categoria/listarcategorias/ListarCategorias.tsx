@@ -4,34 +4,21 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Categoria from '../../../models/Categoria';
 import { ThreeDots } from 'react-loader-spinner';
 import Produto from '../../../models/Produto';
-import { listar } from '../../../services/Service';
+import { deletar, listar } from '../../../services/Service';
 import CardProdutos from '../../produtos/cardprodutos/CardProdutos';
+import { ToastAlerta } from '../../../utils/ToastAlerta';
+import AuthContext from '../../../contexts/AuthContext';
 
 function ListarCategorias() {
   const navigate = useNavigate();
-  // const { usuario } = useContext(AuthContext) // Verifique se o usuário é administrador
-
-
-    // const { id } = useParams<{ id: string }>()
-
     const [categorias, setCategorias] = useState<Categoria[]>([])
     const [produtos, setProdutos] = useState<Produto[]>([])
     const [loadingProdutos, setLoadingProdutos] = useState(false)
+const { usuario, handleLogout } = useContext(AuthContext)
+    const token = usuario.token
 
 
 
-  //   async function buscarCategorias() {
-  //     try {
-  //       console.log("Buscando categorias...");
-  //       await listar("/categoria", setCategorias);
-  //       console.log("Categorias encontradas:", categorias);
-  //     } catch (err) {
-  //       console.error("Erro ao buscar categorias:", err);
-  //     }
-  //   }
-  // useEffect(() => {
-  //     buscarCategorias();
-  //   }, [categorias.length]);
 
     async function buscarCategorias() {
       try {
@@ -64,6 +51,24 @@ function ListarCategorias() {
       buscarCategorias()
     }, [])
 
+
+    const handleDelete = async (id: number) => {
+      try {
+        await deletar(`/categoria/${id}`, {
+          headers: {
+            Authorization: token,
+          },
+        });
+        setCategorias((prevCategorias) => prevCategorias.filter((cat) => cat.id !== id));
+        ToastAlerta("Categoria excluída com sucesso!", "sucesso");
+      } catch (error: any) {
+        if (error.toString().includes("401")) {
+          handleLogout();
+        } else {
+          ToastAlerta("Erro ao excluir a categoria!", "erro");
+        }
+      }
+    };
     
   return (
     <>
@@ -90,9 +95,20 @@ function ListarCategorias() {
   <button onClick={buscarTodosProdutos} className="text-2xl font-semibold relative border rounded-xl p-4 shadow-3xl flex items-center justify-center bg-[#bad381] hover:shadow-2xl duration-300 cursor-pointer">
           TODOS OS PRODUTOS
         </button>
-  {categorias.map((categoria) => (
-            <CardCategoria key={categoria.id} categoria={categoria} onClick={() => setProdutos(categoria.produto || [])} />
-          ))}
+        <button
+            onClick={() => navigate('/categoria/novo')}
+            className="text-2xl font-semibold relative border rounded-xl p-4 shadow-3xl flex items-center justify-center bg-[#bad381] hover:shadow-2xl duration-300 cursor-pointer"
+          >
+            ADICIONAR NOVA CATEGORIA
+          </button>
+        {categorias.map((categoria) => (
+            <CardCategoria
+            key={categoria.id}
+            categoria={categoria}
+            onClick={() => setProdutos(categoria.produto || [])}
+            onDelete={handleDelete}
+            />
+        ))}
         </div>
    <div className="rounded-lg p-4 bg-[#fa7777] w-full my-4">
                     <h2 className="text-3xl font-bold text-center text-white mb-6"></h2>
@@ -121,3 +137,5 @@ function ListarCategorias() {
 }
 
 export default ListarCategorias
+
+

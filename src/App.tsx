@@ -21,6 +21,9 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Cart from "./components/carrinho/cart/Cart";
 import { CartProvider } from "./contexts/CartContext";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import DeletarCategoria from "./components/Categoria/deletarcategoria/DeletarCategoria";
+import CadastrarCategoria from "./components/Categoria/cadastrarcategoria/CadastrarCategoria";
+import EditarCategoria from "./components/Categoria/editarcategoria/EditarCategoria";
 
 const App = () => {
   useEffect(() => {
@@ -57,6 +60,10 @@ const App = () => {
                     <Route path="/sobre" element={<Sobre />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/perfil" element={<Perfil />} />
+                    <Route path="/categoria/novo" element={<CadastrarCategoria />} />
+                    <Route path="/categoria/:id" element={<EditarCategoria />} />
+                    <Route path="/categoria/deletar/:id" element={<DeletarCategoria />} />
+
                   </Routes>
 
                   {/* Colocando o componente Services abaixo da Home */}
