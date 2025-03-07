@@ -82,4 +82,15 @@ yarn install
 yarn run start:dev
 ```
 
+## 5. Contribuindo 🤝
 
+Se você quiser contribuir para o projeto, fique à vontade para realizar um **fork** e enviar um **pull request**. Antes de começar, por favor, siga os passos abaixo:
+
+1. **Faça um fork** deste repositório.
+2. **Crie uma branch** para a sua feature (`git checkout -b minha-feature`).
+3. **Faça as modificações** necessárias.
+4. **Commit** suas alterações (`git commit -am 'Adiciona nova feature'`).
+5. **Push** para a branch (`git push origin minha-feature`).
+6. Envie um **pull request** explicando as alterações feitas.
+
+Sua contribuição é muito bem-vinda! 🚀
