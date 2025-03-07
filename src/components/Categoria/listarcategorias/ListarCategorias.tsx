@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import CardCategoria from '../cardcategoria.tsx/CardCategoria'
+import CardCategoria from '../cardcategoria/CardCategoria'
 import { useNavigate, useParams } from 'react-router-dom';
 import Categoria from '../../../models/Categoria';
 import { ThreeDots } from 'react-loader-spinner';
