@@ -33,7 +33,7 @@ function CardProdutos({ produto }: CardProdutoProps) {
     <div className="flex flex-col rounded-lg overflow-hidden justify-between bg-white my-10 hover:shadow-lg hover:scale-105 transition-transform duration-300">
       <div className="flex justify-end items-end pt-2 pr-2">
         {/* Mostrar ícones de edição e exclusão apenas se autenticado */}
-        {isAuthenticated && (
+        {usuario.admin == true && (
           <>
             <Link to={`/produto/${produto.id}`}>
               <Plus size={24} className="mr-1 hover:fill-green-700" />
