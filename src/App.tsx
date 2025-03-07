@@ -16,6 +16,8 @@ import ComoFazerPedido from "./pages/ComoFazerPedido";
 import Servicos from "./components/Servicos/Servicos";
 import { AuthProvider } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar/Navbar";
+import Cart from "./components/carrinho/cart/Cart";
+import { CartProvider } from "./contexts/CartContext";
 
 const App = () => {
   useEffect(() => {
@@ -30,6 +32,7 @@ const App = () => {
 
   return (
     <AuthProvider> {/* Envolva a aplicação com o AuthProvider */}
+    <CartProvider>
       <Router>
         <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
           <Navbar />
@@ -39,6 +42,7 @@ const App = () => {
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/cardapio" element={<Cardapio />} />
             <Route path="/sobre" element={<Sobre />} />
+            <Route path="/cart" element={<Cart />} />
             <Route 
             path="/login" 
             element={
@@ -61,6 +65,7 @@ const App = () => {
           <Footer />
         </div>
       </Router>
+      </CartProvider>
     </AuthProvider>
   );
 };
