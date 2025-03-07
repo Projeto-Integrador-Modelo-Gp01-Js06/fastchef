@@ -6,7 +6,7 @@ import { CartContext } from "../../contexts/CartContext";
 
 const Menu = [
   { id: 1, name: "Inicio", link: "/#" },
-  { id: 2, name: "Serviços", link: "/categories" },
+  { id: 2, name: "Serviços", link: "/services" },
   { id: 3, name: "Sobre", link: "/Sobre" },
   { id: 4, name: "Equipe", link: "/equipe" },
 ];
