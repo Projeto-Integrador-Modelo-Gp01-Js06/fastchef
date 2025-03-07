@@ -77,8 +77,7 @@ O projeto foi desenvolvido por uma equipe incrível composta por 8 pessoas:
 yarn install
 ```
 
-3. Crie e configure o banco de dados MySQL conforme as instruções no arquivo ormconfig.json.
-4. Rode a aplicação:
+3. Rode a aplicação:
 ```
 yarn run start:dev
 ```
