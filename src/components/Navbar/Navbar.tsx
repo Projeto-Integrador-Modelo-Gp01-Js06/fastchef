@@ -20,6 +20,12 @@ const Menu = [
     name: "Sobre",
     link: "/Sobre",  
   },
+
+  {
+    id: 4,
+    name: "Equipe",
+    link: "/equipe",  
+  },
 ];
 
 
@@ -62,6 +68,11 @@ const Navbar = () => {
 							</span>
 						)}
               </button>
+<<<<<<< HEAD
+=======
+              <Link to="/login">
+              <img src= "https://ik.imagekit.io/c2hajdacu/FastChef/user%20(1).png?updatedAt=1741357664304" className="w-10 h-10 rounded-full mb-4 p-1 m-5 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 bg-red-300"></img>
+>>>>>>> debfa186a8f869fa8e5ff38d9a24e36712c0f2b4
               </Link>
               <div>
                 <DarkMode />

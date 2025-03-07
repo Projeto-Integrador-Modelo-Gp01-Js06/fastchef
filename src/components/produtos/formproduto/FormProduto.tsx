@@ -6,10 +6,18 @@ import Categoria from "../../../models/Categoria";
 import Produto from "../../../models/Produto";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { atualizar, cadastrar, listar } from "../../../services/Service";
 =======
 import { atualizar, cadastrar, listar } from '../../../services/Service';
 >>>>>>> Dupla-3
+=======
+import { atualizar, cadastrar, listar } from "../../../services/Service";
+
+
+
+
+>>>>>>> debfa186a8f869fa8e5ff38d9a24e36712c0f2b4
 
 function FormProduto() {
   const navigate = useNavigate();

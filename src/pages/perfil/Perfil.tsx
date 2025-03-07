@@ -1,7 +1,12 @@
 import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+<<<<<<< HEAD
 import AuthContext from '../../contexts/AuthContext'
 import { ToastAlerta } from '../../utils/ToastAlerta'
+=======
+import AuthContext from '../../contexts/AuthContext';
+import { ToastAlerta } from '../../utils/ToastAlerta';
+>>>>>>> debfa186a8f869fa8e5ff38d9a24e36712c0f2b4
 import ModalPerfil from './modalperfil/ModalPerfil'
 
 
