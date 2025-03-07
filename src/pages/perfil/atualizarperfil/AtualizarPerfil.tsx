@@ -58,25 +58,25 @@ function AtualizarPerfil() {
 
             <form className="flex flex-col w-1/2 gap-4" onSubmit={atualizarUsuario}>
                 <div>
-                    <label htmlFor="nome" className="block m-15 text-gray-700 dark:text-gray-300 px-1">Nome</label>
+                    <label htmlFor="nome" >Nome</label>
                     <input
                         type="text"
                         id="nome"
                         name="nome"
                         placeholder="Nome"
-                        className="w-full border-black border rounded-lg py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white px-1"
+                        className="w-full border border-black  rounded-lg py-2 dark:border-gray-600 px-2"
                         value={usuario.nome}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
-                    <label htmlFor="usuario" className="block text-gray-700 dark:text-gray-300 px-1">Email</label>
+                    <label htmlFor="usuario" >Email</label>
                     <input
                         type="email"
                         id="usuario"
                         name="usuario"
                         placeholder="Email"
-                        className="w-full border border-black  rounded-lg py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white px-1"
+                        className="w-full border border-black  rounded-lg py-2 dark:border-gray-600 px-2"
                         value={usuario.usuario}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
@@ -88,19 +88,19 @@ function AtualizarPerfil() {
                         placeholder="URL da Foto"
                         name="foto"
                         required
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="w-full border border-black  rounded-lg py-2 dark:border-gray-600 px-2"
                         value={usuario.foto}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <div>
-                    <label htmlFor="senha" className="block text-gray-700 dark:text-gray-300 px-1">Senha</label>
+                    <label htmlFor="senha" >Senha</label>
                     <input
                         type="password"
                         id="senha"
                         name="senha"
                         placeholder="Senha"
-                        className="w-full border px-1 border-black  rounded-lg py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                        className="w-full border border-black  rounded-lg py-2 dark:border-gray-600 px-2"
                         value={usuario.senha}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
