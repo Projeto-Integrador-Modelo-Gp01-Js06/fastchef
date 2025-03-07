@@ -19,6 +19,9 @@ import Perfil from "./pages/perfil/Perfil";
 import Navbar from "./components/navbar/Navbar";
 import Equipe from "./pages/equipe/Equipe";
 
+
+
+
 const App = () => {
   useEffect(() => {
     AOS.init({

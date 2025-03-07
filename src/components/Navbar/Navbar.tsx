@@ -57,7 +57,7 @@ const Navbar = () => {
                 <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
               </button>
 
-              <img src= "https://ik.imagekit.io/c2hajdacu/FastChef/avatar-do-usuario.png?updatedAt=1741314975522" className="w-10 h-10 rounded-full mb-4 p-1 m-5 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 bg-red-200"></img>
+              <img src= "https://ik.imagekit.io/c2hajdacu/FastChef/perfil-de-usuario.png?updatedAt=1741316405038" className="w-10 h-10 rounded-full mb-4 p-1 m-5 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 bg-red-300"></img>
               <div>
                 <DarkMode />
               </div>

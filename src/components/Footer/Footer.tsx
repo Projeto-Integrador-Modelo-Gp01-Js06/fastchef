@@ -82,7 +82,7 @@ const Footer = () => {
                 <li className="cursor-pointer">Datas</li>
                   <li className="cursor-pointer">Festas</li>
                   <li className="cursor-pointer">Aniversários</li>
-                  <li className="cursor-pointer">Menu<Link to="/perfil">Perfil</Link></li>
+                  <li className="cursor-pointer">Menu</li>
                 </ul>
               </div>
             </div>
