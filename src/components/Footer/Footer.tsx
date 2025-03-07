@@ -52,10 +52,11 @@ const Footer = () => {
                   Links 
                 </h1>
                 <ul className={`flex flex-col gap-3`}>
-                  <li className="cursor-pointer">Inicio</li>
-                  <li className="cursor-pointer"><Link to="/Sobre">Sobre</Link></li>
-                  <li className="cursor-pointer"><Link to="/categories">Serviços</Link></li>
-                  <li className="cursor-pointer"><Link to="/login">Login</Link></li>
+                  
+                <Link to='/' className='hover:underline'>Inicio</Link>
+                <Link to='/sobre' className='hover:underline'>Sobre</Link>
+                <Link to='/servicos' className='hover:underline'>Servicos</Link>
+                <Link to='/login' className='hover:underline'>Login</Link>
                 </ul>
               </div>
             </div>

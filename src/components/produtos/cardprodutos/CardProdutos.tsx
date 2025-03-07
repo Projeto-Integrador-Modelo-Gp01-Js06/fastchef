@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import Produto from "../../../models/Produto";
-import { Pencil, Trash } from "@phosphor-icons/react";
+import { Pencil, Trash, Plus } from "@phosphor-icons/react";
 import { formatarMoeda } from "../../../utils/FormatarMoeda";
 import { AuthContext } from "../../../contexts/AuthContext"; // Importar AuthContext
 
@@ -30,11 +30,14 @@ function CardProdutos({ produto }: CardProdutoProps) {
   }
 
   return (
-    <div className="flex flex-col rounded-lg overflow-hidden justify-between bg-white my-10 hover:shadow-lg">
+    <div className="flex flex-col rounded-lg overflow-hidden justify-between bg-white my-10 hover:shadow-lg hover:scale-105 transition-transform duration-300">
       <div className="flex justify-end items-end pt-2 pr-2">
         {/* Mostrar ícones de edição e exclusão apenas se autenticado */}
-        {isAuthenticated && (
+        {usuario.admin == true && (
           <>
+            <Link to={`/produto/${produto.id}`}>
+              <Plus size={24} className="mr-1 hover:fill-green-700" />
+            </Link>
             <Link to={`/produto/${produto.id}`}>
               <Pencil size={24} className="mr-1 hover:fill-teal-700" />
             </Link>

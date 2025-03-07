@@ -152,7 +152,7 @@ function Cadastro() {
           </div>
           <p className="text-center mt-4">
             Já tem uma conta? Faça o {" "}
-            <Link to="/cadastro" className="text-[#627947]  hover:underline">
+            <Link to="/login" className="text-[#627947]  hover:underline">
               Login
             </Link>
           </p>
