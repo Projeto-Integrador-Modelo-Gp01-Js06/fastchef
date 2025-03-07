@@ -1,18 +1,13 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://fastchef.onrender.com/",
-});
+    baseURL: "https://fastchef.onrender.com"
+})
 
-export const cadastrarUsuario = async (
-  url: string,
-  dados: Object,
-  setDados: Function
-) => {
-  const resposta = await api.post(url, dados);
-  setDados(resposta.data);
-};
-
+export const cadastrarUsuario = async(url: string, dados: Object, setDados: Function) => {
+    const resposta = await api.post(url, dados)
+    setDados(resposta.data)
+}
 
 export const login = async (url: string, dados: Object, setDados: Function) => {
   const resposta = await api.post(url, dados);
@@ -25,6 +20,7 @@ export const listar = async (
 ) => {
   const resposta = await api.get(url);
   setDados(resposta.data);
+  return resposta.data;
 };
 
 export const cadastrar = async (
@@ -48,5 +44,5 @@ export const atualizar = async (
 };
 
 export const deletar = async (url: string, header: Object) => {
-  await api.delete(url, header)
+    await api.delete(url, header)
 }

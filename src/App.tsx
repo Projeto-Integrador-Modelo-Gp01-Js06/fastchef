@@ -1,27 +1,26 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { BrowserRouter, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-
- // Importando o componente de Serviços
+// Importando o componente de Serviços
 import Sobre from "../src/components/Sobre/Sobre";
 import AppStore from "./components/AppStore/AppStore";
 import Testimonial from "./components/Avaliacoes/Avaliacoes";
 import Footer from "./components/Footer/Footer";
 import "aos/dist/aos.css";
-import Categories from "./pages/Categories"; 
-import ComoFazerPedido from "./pages/ComoFazerPedido"; 
+import Categories from "./pages/Categories";
+import ComoFazerPedido from "./pages/ComoFazerPedido";
 import Servicos from "./components/Servicos/Servicos";
-import { AuthProvider } from "./contexts/AuthContext";  // Certifique-se de importar o AuthProvider
 import Perfil from "./pages/perfil/Perfil";
 import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar/Navbar";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Cardapio from "./pages/Cardapio";
 import Login from "./pages/login/Login";
-
- // Certifique-se de importar o AuthProvider
+import { AuthProvider } from "./contexts/AuthContext";
+import Cart from "./components/carrinho/cart/Cart";
+import { CartProvider } from "./contexts/CartContext";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 
 const App = () => {
   useEffect(() => {
@@ -41,32 +40,43 @@ const App = () => {
         <BrowserRouter>
 
           <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-            <Navbar />
+            <CartProvider>
 
-            <Routes>
-              <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
-              <Route path="/cadastro" element={<Cadastro />} />
-              <Route path="/cardapio" element={<Cardapio />} />
-              <Route path="/sobre" element={<Sobre />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/perfil" element={<Perfil />} />
-            </Routes>
+                <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+                  <Navbar />
 
-            {/* Colocando o componente Services abaixo da Home */}
-            <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
+                  <Routes>
+                    <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
+                    <Route path="/cadastro" element={<Cadastro />} />
+                    <Route path="/cardapio" element={<Cardapio />} />
+                    <Route path="/sobre" element={<Sobre />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
+                    <Route path="/cadastro" element={<Cadastro />} />
+                    <Route path="/cardapio" element={<Cardapio />} />
+                    <Route path="/sobre" element={<Sobre />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/perfil" element={<Perfil />} />
+                  </Routes>
 
-            {/* Outras seções abaixo */}
-            <Categories />
-            <ComoFazerPedido />
-            <Sobre />
-            <AppStore />
-            <Testimonial />
-            <Footer />
+                  {/* Colocando o componente Services abaixo da Home */}
+                  <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
+
+                  {/* Outras seções abaixo */}
+                  <Categories />
+                  <ComoFazerPedido />
+                  <Sobre />
+                  <AppStore />
+                  <Testimonial />
+                  <Footer />
+                </div>
+
+            </CartProvider>
           </div>
-
         </BrowserRouter>
       </AuthProvider>
     </>
+
   );
 };
 

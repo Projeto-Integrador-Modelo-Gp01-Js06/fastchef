@@ -1,18 +1,28 @@
 import React from 'react'
-import { FaInstagram } from 'react-icons/fa6'
 import Categoria from '../../../models/Categoria'
+import { Pencil, Trash } from '@phosphor-icons/react'
+import { Link } from 'react-router-dom'
 
-interface CardCategoriasProps{
+interface CardCategoriasProps {
     categoria: Categoria
+    onClick: (id: string) => void
 }
 
-function CardCategoria({categoria}:CardCategoriasProps) { 
+function CardCategoria({ categoria, onClick }: CardCategoriasProps) {
     return (
-        <div className='border rounded-xl p-4 shadow-lg flex items-center justify-between bg-white hover:shadow-xl duration-300'>
-    <FaInstagram className="text-4xl text-pink-500 hover:scale-110 duration-200 cursor-pointer ml-2" />
-    <div className='text-2xl font-semibold text-gray-800'>{}</div>
-</div>
+        <div onClick={() => onClick(categoria.id.toString())}     className="relative border rounded-xl p-4 shadow-3xl flex items-center justify-center bg-white hover:shadow-2xl duration-300 cursor-pointer">
+            <p className='text-2xl font-semibold text-gray-800'>{categoria.nome}</p>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 flex">       
+            <Link to={`/categoria/${categoria.id}`}>
+              <Pencil size={24} className="mr-1 hover:fill-teal-700" />
+            </Link>
+            <Link to={`/categoria/${categoria.id}`}>
+              <Trash size={24} className="mr-1 hover:fill-red-700" />
+            </Link>
+      </div>
+      
+        </div>
     )
 }
 
-export default CardCategoria 
+export default CardCategoria

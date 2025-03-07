@@ -5,7 +5,11 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
 import Produto from "../../../models/Produto";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
+<<<<<<< HEAD
 import { atualizar, cadastrar, listar } from "../../../services/Service";
+=======
+import { atualizar, cadastrar, listar } from '../../../services/Service';
+>>>>>>> Dupla-3
 
 function FormProduto() {
   const navigate = useNavigate();
@@ -75,6 +79,7 @@ function FormProduto() {
     }
   }, [id]);
 
+  /*
   useEffect(() => {
     if (categoria.id !== 0) {
       setProduto((prevState) => ({
@@ -84,6 +89,7 @@ function FormProduto() {
       }));
     }
   }, [categoria]);
+  */
 
   function handleCategoriaChange(e: ChangeEvent<HTMLSelectElement>) {
     const selectedId = e.target.value;
