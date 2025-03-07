@@ -23,7 +23,7 @@ const Login = () => {
 
   useEffect(() => {
     if (usuario.token !== "") 
-      navigate("/");
+      navigate("/cart");
   }, [usuario]);
 
   function login(e: ChangeEvent<HTMLFormElement>) {
