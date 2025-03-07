@@ -144,6 +144,7 @@ function EditarCategoria() {
           </button>
           <button
             className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center"
+            onClick={retornar}
             type="submit"
           >
             {isLoading ? (
