@@ -5,10 +5,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
 import Produto from "../../../models/Produto";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
-import { atualizar, cadastrar, listar } from "../../../services/Service";
-
-
-
+import { atualizar, cadastrar, listar } from '../../../services/Service';
 
 
 function FormProduto() {

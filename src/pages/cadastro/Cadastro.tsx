@@ -10,14 +10,13 @@ function Cadastro() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [confirmaSenha, setConfirmaSenha] = useState<string>("");
 
-  // A interface 'Usuario' agora exige a propriedade 'admin', então incluímos ela com um valor padrão
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: "",
     usuario: "",
     senha: "",
     foto: "",
-    admin: false, // A propriedade 'admin' agora está sendo inicializada corretamente
+    admin: false
   });
 
   useEffect(() => {
@@ -41,14 +40,11 @@ function Cadastro() {
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // Verificar se a senha e a confirmação estão corretas
     if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
       setIsLoading(true);
       try {
-        // Passando a propriedade 'admin' (que está como false por padrão) junto aos dados
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
         ToastAlerta("Usuário cadastrado com sucesso!", "sucesso");
-        navigate("/login"); // Após cadastro, redireciona para a tela de login
       } catch (error) {
         ToastAlerta("Erro ao cadastrar o usuário!", "erro");
       }

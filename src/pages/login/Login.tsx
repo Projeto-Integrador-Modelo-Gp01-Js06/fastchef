@@ -10,32 +10,30 @@ function Login() {
   const { usuario, handleLogin, isLoading } = useContext(AuthContext);
 
   const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({
-    id: 0,
-    nome: "",
     usuario: "",
-    foto: "",
     senha: "",
-    token: "",
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-
-  useEffect(() => {
-    if (usuario.token) {
-      navigate("/perfil");
-    }
-  }, [usuario.token, navigate]);
+  const [mostrarSenha, setMostrarSenha] = useState(false);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    setUsuarioLogin({
-      ...usuarioLogin,
+    setUsuarioLogin((prevState) => ({
+      ...prevState,
       [e.target.name]: e.target.value,
-    });
+    }));
   }
+
+  useEffect(() => {
+    if (usuario.token !== "") navigate("/");
+  }, [usuario, navigate]);
 
   function login(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     handleLogin(usuarioLogin);
+  }
+
+  function toggleSenha() {
+    setMostrarSenha(!mostrarSenha);
   }
 
   return (
@@ -49,74 +47,76 @@ function Login() {
         />
       </div>
 
-      <form
-        className="w-full lg:w-1/2 p-1 my-10 mx-auto max-w-md"
-        onSubmit={login}
-      >
-        <h2 className="text-2xl font-bold text-center mb-6">Faça seu Login</h2>
-
-        <div className="flex flex-col w-full">
-          <label htmlFor="usuario">Usuário (E-mail)</label>
-          <input
-            type="text"
-            id="usuario"
-            name="usuario"
-            placeholder="Usuário"
-            className="border-2 border-slate-700 rounded p-2 focus:ring-2 focus:ring-[#fa7777]"
-            value={usuarioLogin.usuario}
-            onChange={atualizarEstado}
-          />
-        </div>
-
-        <div className="relative flex flex-col w-full mt-4">
-          <label htmlFor="senha">Senha</label>
-          <input
-            type={showPassword ? "text" : "password"}
-            id="senha"
-            name="senha"
-            placeholder="Senha"
-            className="border-2 border-slate-700 rounded p-2 focus:ring-2 focus:ring-[#fa7777]"
-            value={usuarioLogin.senha}
-            onChange={atualizarEstado}
-          />
-          <button
-            type="button"
-            aria-label={showPassword ? "Esconder senha" : "Mostrar senha"}
-            className="top-9 right-2 absolute text-slate-700"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
-          </button>
-        </div>
-
-        <button
-          type="submit"
-          className="my-5 w-full bg-[#fa7777] text-white px-6 py-2 rounded-lg hover:bg-[#e66a6a] transition"
-        >
-          <div className="flex items-center justify-center">
-            {isLoading ? (
-              <RotatingLines
-                strokeColor="white"
-                strokeWidth="5"
-                animationDuration="0.75"
-                width="24"
-                visible={true}
-              />
-            ) : (
-              <span>Entrar</span>
-            )}
+      {/* Coluna do formulário */}
+      <div className="w-full lg:w-1/2 p-1 my-10 mx-40 max-w-md">
+        <h2 className="text-2xl font-bold text-center mb-6">Faça seu login</h2>
+        <form onSubmit={login} className="space-y-6">
+          <div>
+            <label className="block text-gray-700 mb-2">Usuário</label>
+            <input
+              type="email"
+              id="usuario"
+              name="usuario"
+              placeholder="Usuário (E-mail)"
+              value={usuarioLogin.usuario}
+              onChange={atualizarEstado}
+              className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:border-[#8daf66]"
+              required
+            />
           </div>
-        </button>
 
-        <hr className="border-slate-800 w-full" />
+          <div>
+            <label className="block text-gray-700 mb-2">Senha</label>
+            <div className="relative">
+              <input
+                type={mostrarSenha ? "text" : "password"}
+                placeholder="Senha"
+                id="senha"
+                name="senha"
+                value={usuarioLogin.senha}
+                onChange={atualizarEstado}
+                className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:border-[#8daf66]"
+                required
+              />
+              <button
+                type="button"
+                onClick={toggleSenha}
+                className="absolute right-3 top-3"
+              >
+                {mostrarSenha ? <EyeSlash size={24} /> : <Eye size={24} />}
+              </button>
+            </div>
+          </div>
 
-        <p className="text-center mt-4">
-          Ainda não tem uma conta?{" "}
-          <Link to="/cadastro" className="text-[#627947]  hover:underline">
-            Cadastre-se
-          </Link>
-        </p>
-      </form>
+          <button
+            type="submit"
+            className="my-5 w-full bg-[#fa7777] text-white px-6 py-2 rounded-lg hover:bg-[#e66a6a] transition"
+          >
+            <div className="flex items-center justify-center">
+              {isLoading ? (
+                <RotatingLines
+                  strokeColor="white"
+                  strokeWidth="5"
+                  animationDuration="0.75"
+                  width="24"
+                  visible={true}
+                />
+              ) : (
+                <span>Entrar</span>
+              )}
+            </div>
+          </button>
+
+          <hr className="border-slate-800 w-full" />
+
+          <p className="text-center mt-4">
+            Ainda não tem uma conta?{" "}
+            <Link to="/cadastro" className="text-[#627947] hover:underline">
+              Cadastre-se
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
