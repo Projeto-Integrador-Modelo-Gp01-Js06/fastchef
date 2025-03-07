@@ -1,13 +1,16 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
-// Importando o componente de Serviços
+import Cadastro from "./pages/Cadastro";
+import Cardapio from "./pages/Cardapio";
 import Sobre from "../src/components/Sobre/Sobre";
 import AppStore from "./components/AppStore/AppStore";
 import Testimonial from "./components/Avaliacoes/Avaliacoes";
 import Footer from "./components/Footer/Footer";
 import "aos/dist/aos.css";
+import Login from "./pages/Login";
 import Categories from "./pages/Categories";
 import ComoFazerPedido from "./pages/ComoFazerPedido";
 import Servicos from "./components/Servicos/Servicos";
@@ -18,9 +21,21 @@ import Cadastro from "./pages/cadastro/Cadastro";
 import Cardapio from "./pages/Cardapio";
 import Login from "./pages/login/Login";
 import { AuthProvider } from "./contexts/AuthContext";
-import Cart from "./components/carrinho/cart/Cart";
-import { CartProvider } from "./contexts/CartContext";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+
+// Componente para rolar ao topo em cada mudança de rota
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Rolagem suave
+    });
+  }, [pathname]); // Executa toda vez que a rota muda
+
+  return null;
+}
 
 const App = () => {
   useEffect(() => {
@@ -34,49 +49,37 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <AuthProvider>
-        <ToastContainer />
-        <BrowserRouter>
+    <AuthProvider>
+      <Router>
+        <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+          <ScrollToTop /> {/* Adiciona o ScrollToTop aqui */}
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/cardapio" element={<Cardapio />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route
+              path="/login"
+              element={
+                <AuthProvider>
+                  <Login />
+                </AuthProvider>
+              }
+            />
+          </Routes>
 
-          <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-            <CartProvider>
-
-                <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-                  <Navbar />
-
-                  <Routes>
-                    <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
-                    <Route path="/cadastro" element={<Cadastro />} />
-                    <Route path="/cardapio" element={<Cardapio />} />
-                    <Route path="/sobre" element={<Sobre />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/" element={<Home />} /> {/* Renderizando a Home na rota principal */}
-                    <Route path="/cadastro" element={<Cadastro />} />
-                    <Route path="/cardapio" element={<Cardapio />} />
-                    <Route path="/sobre" element={<Sobre />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/perfil" element={<Perfil />} />
-                  </Routes>
-
-                  {/* Colocando o componente Services abaixo da Home */}
-                  <Servicos /> {/* Agora o componente Services será renderizado após a Home */}
-
-                  {/* Outras seções abaixo */}
-                  <Categories />
-                  <ComoFazerPedido />
-                  <Sobre />
-                  <AppStore />
-                  <Testimonial />
-                  <Footer />
-                </div>
-
-            </CartProvider>
-          </div>
-        </BrowserRouter>
-      </AuthProvider>
-    </>
-
+          {/* Componentes renderizados após a rota */}
+          <Servicos />
+          <Categories />
+          <ComoFazerPedido />
+          <Sobre />
+          <AppStore />
+          <Testimonial />
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 };
 
