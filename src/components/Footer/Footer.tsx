@@ -58,6 +58,11 @@ const Footer = () => {
                 <Link to='/sobre' className='hover:underline'>Sobre</Link>
                 <Link to='/servicos' className='hover:underline'>Servicos</Link>
                 <Link to='/login' className='hover:underline'>Login</Link>
+                  
+                <Link to='/' className='hover:underline'>Inicio</Link>
+                <Link to='/sobre' className='hover:underline'>Sobre</Link>
+                <Link to='/servicos' className='hover:underline'>Servicos</Link>
+                <Link to='/login' className='hover:underline'>Login</Link>
                 </ul>
               </div>
             </div>
