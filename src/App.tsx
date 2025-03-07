@@ -1,31 +1,23 @@
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
-import Navbar from "./components/navbar/DarkMode";
-import Home from "./pages/Home";
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Cardapio from "./pages/Cardapio";
- // Importando o componente de Serviços
-import Aos from "aos";
+import Home from "./pages/Home";
+import AOS from "aos";
 import "aos/dist/aos.css";
 import Sobre from "../src/components/Sobre/Sobre";
 import AppStore from "./components/AppStore/AppStore";
 import Testimonial from "./components/Avaliacoes/Avaliacoes";
 import Footer from "./components/Footer/Footer";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Login from "./pages/login/Login"; 
-import Categories from "./pages/Categories"; 
-import ComoFazerPedido from "./pages/ComoFazerPedido"; 
-import ListarProdutos from "./components/produtos/listarprodutos/ListarProdutos";
-import FormProduto from "./components/produtos/formproduto/FormProduto";
-import DeletarProduto from "./components/produtos/deletarproduto/DeletarProduto";
-import ListarProdutosSaudaveis from "./components/produtos/listarprodutossaudaveis/ListarProdutosSaudaveis";
 import Servicos from "./components/Servicos/Servicos";
-import Services from "./components/Servicos/Servicos";
- // Certifique-se de importar o AuthProvider
-import { AuthProvider } from "./contexts/AuthContext";  // Certifique-se de importar o AuthProvider
-import Perfil from "./pages/perfil/Perfil";
+import Categories from "./pages/Categories";
+import ComoFazerPedido from "./pages/ComoFazerPedido";
+import Login from "./pages/login/Login";
 import { ToastContainer } from "react-toastify";
+import { AuthProvider } from "./contexts/AuthContext"; // 
+import Perfil from "./pages/perfil/Perfil";
+import Navbar from "./components/navbar/Navbar";
+import Equipe from "./pages/equipe/Equipe";
 
 const App = () => {
   useEffect(() => {
@@ -53,6 +45,7 @@ const App = () => {
               <Route path="/cardapio" element={<Cardapio />} />
               <Route path="/sobre" element={<Sobre />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/equipe" element={<Equipe />} />
               <Route path="/perfil" element={<Perfil />} />
             </Routes>
 

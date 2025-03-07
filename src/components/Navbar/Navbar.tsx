@@ -19,6 +19,12 @@ const Menu = [
     name: "Sobre",
     link: "/Sobre",  
   },
+
+  {
+    id: 4,
+    name: "Equipe",
+    link: "/equipe",  
+  },
 ];
 
 const Navbar = () => {
@@ -50,6 +56,8 @@ const Navbar = () => {
                 Comprar
                 <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
               </button>
+
+              <img src= "https://ik.imagekit.io/c2hajdacu/FastChef/avatar-do-usuario.png?updatedAt=1741314975522" className="w-10 h-10 rounded-full mb-4 p-1 m-5 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 bg-red-200"></img>
               <div>
                 <DarkMode />
               </div>
