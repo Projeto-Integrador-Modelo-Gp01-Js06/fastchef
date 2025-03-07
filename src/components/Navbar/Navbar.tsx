@@ -58,8 +58,9 @@ const Navbar = () => {
                 Comprar
                 <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
               </button>
-
-              <img src= "https://ik.imagekit.io/c2hajdacu/FastChef/perfil-de-usuario.png?updatedAt=1741316405038" className="w-10 h-10 rounded-full mb-4 p-1 m-5 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 bg-red-300"></img>
+              <Link to="/perfil">
+              <img src= "https://ik.imagekit.io/c2hajdacu/FastChef/user%20(1).png?updatedAt=1741357664304" className="w-10 h-10 rounded-full mb-4 p-1 m-5 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 bg-red-300"></img>
+              </Link>
               <div>
                 <DarkMode />
               </div>

@@ -15,7 +15,7 @@ function Equipe() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 flex flex-col items-center py-10">
-      <h1 className="text-green-600 dark:text-lime-300 text-4xl lg:text-5xl font-extrabold mb-10">
+      <h1 className="text-red-300 dark:text-lime-300 text-4xl lg:text-5xl font-extrabold mb-10">
         CONHEÇA A NOSSA EQUIPE!
       </h1>
       <p className="text-black dark:text-gray-300 text-xl mb-10 text-center max-w-2xl font-bold">
@@ -26,7 +26,7 @@ function Equipe() {
         {membros.map((membro, index) => (
           <div
             key={index}
-            className="bg-red-100 dark:bg-gray-800 shadow-lg rounded-lg p-4 flex flex-col items-center hover:scale-110 transition-transform duration-300 transform group"
+            className="bg-red-200 dark:bg-gray-800 shadow-lg rounded-lg p-4 flex flex-col items-center hover:scale-110 transition-transform duration-300 transform group"
           >
             <img
               src={membro.foto}
@@ -40,7 +40,7 @@ function Equipe() {
                 href={membro.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-lime-400 dark:bg-lime-600 p-2 rounded-full hover:scale-110 hover:bg-lime-300 dark:hover:bg-lime-500 transition-all duration-200"
+                className="bg-[#627947] dark:bg-lime-600 p-2 rounded-full hover:scale-110 hover:bg-lime-300 dark:hover:bg-lime-500 transition-all duration-200"
               >
                 <GithubLogo size={26} weight="bold" className="text-black dark:text-white" />
               </a>
@@ -48,7 +48,7 @@ function Equipe() {
                 href={membro.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-lime-400 dark:bg-lime-600 p-2 rounded-full hover:scale-110 hover:bg-lime-300 dark:hover:bg-lime-500 transition-all duration-200"
+                className="bg-[#627947] dark:bg-lime-600 p-2 rounded-full hover:scale-110 hover:bg-lime-300 dark:hover:bg-lime-500 transition-all duration-200"
               >
                 <LinkedinLogo size={26} weight="bold" className="text-black dark:text-white" />
               </a>
